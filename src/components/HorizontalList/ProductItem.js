@@ -10,7 +10,9 @@ export default function ProductItem({title, price, image}) {
       <TouchableOpacity style={styles.container}>
         <Image source={image} style={styles.image} />
       </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title} numberOfLines={1}>
+        {title}
+      </Text>
       <Text style={styles.price}>{`${currency}${price}`}</Text>
     </View>
   );
@@ -23,10 +25,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 170,
+    width: 140,
     borderRadius: 6,
-    height: 200,
-    resizeMode: 'cover',
+    height: 160,
+    resizeMode: 'center',
     marginBottom: 10,
     borderWidth: 0.5,
     borderColor: colors.LIGHT,
@@ -34,6 +36,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: '700',
     fontSize: 16,
+    flex: 1,
   },
   price: {
     fontWeight: '600',

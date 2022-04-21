@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 10,
+    backgroundColor: colors.HEADER_BACKGROUND,
   },
   drawerAction: {},
   title: {

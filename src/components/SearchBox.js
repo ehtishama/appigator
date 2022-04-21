@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     marginHorizontal: 16,
-    elevation: 4,
+    borderWidth: 1,
+    borderColor: colors.LIGHT,
   },
   icon: {
     borderRightWidth: 1,

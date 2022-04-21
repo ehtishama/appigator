@@ -3,6 +3,7 @@ import React from 'react';
 
 import ProfileScreen from '../screens/ProfileScreen';
 import TabNavigator from '../navigation/TabNavigator';
+
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {

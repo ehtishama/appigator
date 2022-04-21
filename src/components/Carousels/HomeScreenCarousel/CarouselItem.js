@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'pink',
-    borderRadius: 8,
+    borderRadius: 3,
   },
 });

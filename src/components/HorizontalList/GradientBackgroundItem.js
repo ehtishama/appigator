@@ -3,12 +3,13 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../../config/colors';
 import LinearGradient from 'react-native-linear-gradient';
+import {shadows} from '../../config/shadows';
 
 const itemWidth = Dimensions.get('window').width / 3 - 10;
 
 export default function GradientBackgroundItem({text, colors}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity style={styles.shadow}>
       <LinearGradient
         style={styles.container}
         colors={colors}
@@ -29,9 +30,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
+    overflow: 'visible',
   },
   text: {
     color: colors.WHITE,
     fontWeight: '600',
+  },
+  shadow: {
+    elevation: 4,
   },
 });
