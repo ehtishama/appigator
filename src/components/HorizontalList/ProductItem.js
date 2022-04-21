@@ -22,8 +22,10 @@ export default function ProductItem({title, price, image, style}) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    // padding: 10,
+    marginRight: 18,
     alignItems: 'center',
+    // backgroundColor: 'red'
   },
   image: {
     width: 140,

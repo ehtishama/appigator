@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
   pagination: {
     position: 'absolute',
     bottom: 0,
-    paddingVertical: 16,
+    paddingVertical: 12,
   },
   paginationDot: {
-    width: 6,
-    height: 6,
+    width: 8,
+    height: 8,
     borderRadius: 3,
     marginHorizontal: 4,
-    backgroundColor: 'rgba(0, 0, 0, 0.92)',
+    backgroundColor: '#F2726B',
   },
 });

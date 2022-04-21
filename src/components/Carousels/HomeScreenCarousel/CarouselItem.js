@@ -1,10 +1,14 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
+import {colors} from '../../../config/colors';
 
 export default function CarouselItem() {
   return (
     <View style={styles.container}>
-      <Text>Carousel Item</Text>
+      <Image
+        source={require('../../../assets/products/product_1.jpg')}
+        style={styles.bannerImage}
+      />
     </View>
   );
 }
@@ -15,7 +19,11 @@ const styles = StyleSheet.create({
     height: 200,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'pink',
+    backgroundColor: '#F9E5E6',
     borderRadius: 3,
+  },
+  bannerImage: {
+    width: '100%',
+    resizeMode: 'contain',
   },
 });

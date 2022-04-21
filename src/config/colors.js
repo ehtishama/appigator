@@ -7,6 +7,7 @@ export const colors = {
   HEADER_BACKGROUND: '#fff',
   TEXT: '#505050',
   TEXT_LIGHT: '#A8A8A8',
+  LOGO_COLOR: '#f1968e',
 };
 
 export const gradient = {

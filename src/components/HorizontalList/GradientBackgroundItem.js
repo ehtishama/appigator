@@ -24,7 +24,7 @@ export default function GradientBackgroundItem({text, colors}) {
 const styles = StyleSheet.create({
   container: {
     minWidth: itemWidth,
-    minHeight: 60,
+    minHeight: 70,
     borderRadius: 6,
     marginRight: 16,
     alignItems: 'center',

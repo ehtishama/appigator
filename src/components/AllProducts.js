@@ -24,9 +24,8 @@ export default function AllProducts({products = [], ListHeaderComponent}) {
 const styles = StyleSheet.create({
   container: {},
   item: {
-    flex: 1,
+    flex: 0.5,
     marginRight: 0,
     marginBottom: 20,
-    // backgroundColor: 'red',
   },
 });

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   container: {marginBottom: 18},
 
   scrollContainer: {
-    paddingLeft: 14,
+    paddingHorizontal: 14,
     paddingBottom: 10,
     overflow: 'visible',
     padding: 20,
