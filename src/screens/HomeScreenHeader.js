@@ -1,11 +1,12 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import {dummyData} from '../api/dummyData';
 import HomeScreenCarousel from '../components/Carousels/HomeScreenCarousel';
 import HorizontalList from '../components/HorizontalList';
 import GradientBackgroundItem from '../components/HorizontalList/GradientBackgroundItem';
+import IconItem from '../components/HorizontalList/IconItem';
 import ListHeader from '../components/HorizontalList/ListHeader';
 import LogoBackgroundItem from '../components/HorizontalList/LogoBackgroundItem';
 import ProductItem from '../components/HorizontalList/ProductItem';
@@ -22,6 +23,18 @@ export default function HomeScreenHeader() {
         title={'Shop by Category'}
         data={dummyData.categories}
         renderItem={category => <GradientBackgroundItem {...category} />}
+      />
+
+      {/* categories */}
+      <HorizontalList
+        title={'Shop by Category'}
+        data={dummyData.categories}
+        renderItem={category => (
+          <IconItem
+            icon={<Icon name="shoppingcart" size={44} />}
+            title={category.text}
+          />
+        )}
       />
 
       {/* brands */}

@@ -3,6 +3,7 @@ export const colors = {
   BLACK: '#000',
   TRANSPARENT: 'transparent',
   LIGHT: '#e0e0e0',
+  CARD_BACKGROUND: '#F2F2F2',
   APP_BACKGROUND: '#F7F7F7',
   HEADER_BACKGROUND: '#fff',
   TEXT: '#505050',
