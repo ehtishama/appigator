@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   scrollContainer: {
-    marginLeft: 14,
+    paddingLeft: 14,
     paddingBottom: 10,
   },
 });
