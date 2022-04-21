@@ -1,13 +1,14 @@
 import {View, StyleSheet, Text} from 'react-native';
 import React from 'react';
 import {colors} from '../../config/colors';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function IconItem({icon, title}) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <View style={styles.iconContainer}>{icon}</View>
       <Text style={styles.text}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({

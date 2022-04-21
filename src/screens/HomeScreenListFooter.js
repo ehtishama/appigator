@@ -5,6 +5,7 @@ import {dummyData} from '../api/dummyData';
 import LogoBackgroundItem from '../components/HorizontalList/LogoBackgroundItem';
 import {colors} from '../config/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import WhyBuyFromUs from '../components/WhyBuyFromUs';
 
 export default function HomeScreenListFooter() {
   return (
@@ -24,6 +25,8 @@ export default function HomeScreenListFooter() {
           />
         )}
       />
+
+      <WhyBuyFromUs />
     </View>
   );
 }
