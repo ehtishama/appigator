@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'cover',
     marginBottom: 10,
-    elevation: 4,
     borderWidth: 0.5,
     borderColor: colors.LIGHT,
   },

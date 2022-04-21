@@ -1,7 +1,10 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
+import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
+
+import AllProducts from '../components/AllProducts';
 import HomeScreenCarousel from '../components/Carousels/HomeScreenCarousel';
 import HorizontalList from '../components/HorizontalList';
 import GradientBackgroundItem from '../components/HorizontalList/GradientBackgroundItem';
@@ -9,9 +12,16 @@ import LogoBackgroundItem from '../components/HorizontalList/LogoBackgroundItem'
 import ProductItem from '../components/HorizontalList/ProductItem';
 
 import SearchBox from '../components/SearchBox';
+import {gradient} from '../config/colors';
 
 export default function HomeScreen() {
-  const categories = ['Woman', 'Man', 'Kids', 'All', 'Sport', 'Outfits'];
+  const categories = [
+    {key: 1, text: 'Woman', colors: gradient.blue},
+    {key: 2, text: 'Man', colors: gradient.red},
+    {key: 3, text: 'Kids', colors: gradient.green},
+    {key: 4, text: 'Recent', colors: gradient.blue},
+    {key: 5, text: 'All', colors: gradient.red},
+  ];
   const brands = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const featuredProducts = [
     {
@@ -38,15 +48,15 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView>
-      <SearchBox />
       <ScrollView style={styles.container}>
+        <SearchBox />
         <HomeScreenCarousel />
 
         {/* categories */}
         <HorizontalList
           title={'Shop by Category'}
           data={categories}
-          renderItem={item => <GradientBackgroundItem text={item} />}
+          renderItem={category => <GradientBackgroundItem {...category} />}
         />
 
         {/* brands */}
@@ -54,7 +64,10 @@ export default function HomeScreen() {
           title={'Shop by Brand'}
           data={brands}
           renderItem={item => (
-            <LogoBackgroundItem logo={require('../assets/sample_logo.png')} />
+            <LogoBackgroundItem
+              key={item}
+              logo={require('../assets/brands/brand_1.png')}
+            />
           )}
         />
 
@@ -64,6 +77,7 @@ export default function HomeScreen() {
           data={featuredProducts}
           renderItem={item => (
             <ProductItem
+              key={item.title}
               title={item.title}
               price={item.price}
               image={item.image}
@@ -77,12 +91,14 @@ export default function HomeScreen() {
           data={[...featuredProducts].reverse()}
           renderItem={item => (
             <ProductItem
+              key={item.title}
               title={item.title}
               price={item.price}
               image={item.image}
             />
           )}
         />
+        {/* <AllProducts products={featuredProducts} /> */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -90,6 +106,6 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 50,
+    paddingTop: 10,
   },
 });
