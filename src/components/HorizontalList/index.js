@@ -1,16 +1,20 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {colors} from '../../config/colors';
+import {ScrollView, View, StyleSheet} from 'react-native';
 import {shadows} from '../../config/shadows';
 import ListHeader from './ListHeader';
 
-export default function HorizontalList({data, renderItem, title, onSeeAll}) {
+export default function HorizontalList({
+  data,
+  renderItem,
+  title,
+  onSeeAll,
+  listStyles,
+}) {
   return (
     <View style={shadows.sm}>
       <View style={styles.container}>
         {title && <ListHeader title={title} />}
-        <ScrollView horizontal style={styles.scrollContainer}>
+        <ScrollView horizontal style={[styles.scrollContainer, listStyles]}>
           {data.map(renderItem)}
         </ScrollView>
       </View>

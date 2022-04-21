@@ -2,7 +2,11 @@ import {View, Text, StyleSheet, FlatList} from 'react-native';
 import React from 'react';
 import ProductItem from './HorizontalList/ProductItem';
 
-export default function AllProducts({products = [], ListHeaderComponent}) {
+export default function AllProducts({
+  products = [],
+  ListHeaderComponent,
+  ListFooterComponent,
+}) {
   return (
     <FlatList
       data={products}
@@ -17,6 +21,7 @@ export default function AllProducts({products = [], ListHeaderComponent}) {
       keyExtractor={item => item.title}
       numColumns={2}
       ListHeaderComponent={ListHeaderComponent}
+      ListFooterComponent={ListFooterComponent}
     />
   );
 }
