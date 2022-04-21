@@ -14,7 +14,10 @@ export default function HomeScreenCarousel() {
   return (
     <View style={styles.container}>
       <Carousel
+        loop
+        autoplay
         data={items}
+        lockScrollWhileSnapping={true}
         renderItem={renderItem}
         sliderWidth={carouselWidth}
         itemWidth={carouselWidth}
