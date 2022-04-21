@@ -1,5 +1,12 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+
+import SearchBox from '../components/SearchBox';
+
 export default function HomeScreen() {
-  return <Text>Home Screen</Text>;
+  return (
+    <SafeAreaView>
+      <SearchBox />
+    </SafeAreaView>
+  );
 }

@@ -2,6 +2,7 @@ import {DrawerActions, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {colors} from '../../config/colors';
 
 export default function DrawerHeader() {
   const navigation = useNavigation();
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.TRANSPARENT,
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
