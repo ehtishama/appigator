@@ -1,6 +1,7 @@
-import {Text, View, StyleSheet, Dimensions, Image} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {colors} from '../../config/colors';
 
 const currency = '$';
 export default function ProductItem({title, price, image}) {
@@ -22,12 +23,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 160,
+    width: 170,
     borderRadius: 6,
     height: 200,
     resizeMode: 'cover',
     marginBottom: 10,
     elevation: 4,
+    borderWidth: 0.5,
+    borderColor: colors.LIGHT,
   },
   title: {
     fontWeight: '700',

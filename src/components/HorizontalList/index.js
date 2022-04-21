@@ -21,7 +21,7 @@ export default function HorizontalList({data, renderItem, title, onSeeAll}) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {marginBottom: 10},
   title: {
     fontSize: 20,
     fontWeight: '500',

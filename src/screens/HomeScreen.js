@@ -70,6 +70,19 @@ export default function HomeScreen() {
             />
           )}
         />
+
+        {/* best sellers */}
+        <HorizontalList
+          title={'Best Sellers'}
+          data={[...featuredProducts].reverse()}
+          renderItem={item => (
+            <ProductItem
+              title={item.title}
+              price={item.price}
+              image={item.image}
+            />
+          )}
+        />
       </ScrollView>
     </SafeAreaView>
   );

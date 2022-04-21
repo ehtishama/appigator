@@ -1,9 +1,7 @@
-import {Text, StyleSheet, Dimensions, Image} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../../config/colors';
-
-const itemWidth = Dimensions.get('window').width / 3 - 10;
 
 export default function LogoBackgroundItem({logo}) {
   return (
