@@ -4,25 +4,26 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../../config/colors';
 
 const currency = '$';
-export default function ProductItem({title, price, image}) {
+export default function ProductItem({title, price, image, style}) {
   return (
-    <View>
-      <TouchableOpacity style={styles.container}>
+    <View style={[styles.container, style]}>
+      <TouchableOpacity style={styles.imgContainer}>
         <Image source={image} style={styles.image} />
       </TouchableOpacity>
-      <Text style={styles.title} numberOfLines={1}>
-        {title}
-      </Text>
-      <Text style={styles.price}>{`${currency}${price}`}</Text>
+      <View style={styles.content}>
+        <Text style={styles.title} numberOfLines={1}>
+          {title}
+        </Text>
+        <Text style={styles.price}>{`${currency}${price}`}</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginRight: 22,
+    padding: 10,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   image: {
     width: 140,
@@ -33,10 +34,10 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: colors.LIGHT,
   },
+  content: {},
   title: {
     fontWeight: '700',
     fontSize: 16,
-    flex: 1,
   },
   price: {
     fontWeight: '600',
