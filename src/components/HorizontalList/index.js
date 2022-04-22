@@ -13,7 +13,7 @@ export default function HorizontalList({
   return (
     <View style={shadows.sm}>
       <View style={styles.container}>
-        {title && <ListHeader title={title} />}
+        {title && <ListHeader title={title} onPress={onSeeAll} />}
         <ScrollView horizontal style={[styles.scrollContainer, listStyles]}>
           {data.map(renderItem)}
         </ScrollView>

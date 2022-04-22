@@ -14,6 +14,7 @@ export const colors = {
   DARK_300: '#292929',
   DARK_400: '#212121',
   BORDER_ON_DARK: '#535353',
+  LIGHT_BUTTON: '#8D8D8D',
 };
 
 export const gradient = {

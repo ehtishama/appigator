@@ -16,6 +16,7 @@ export default function HomeScreenHeader() {
   return (
     <View style={styles.container}>
       <SearchBox />
+
       <HomeScreenCarousel />
 
       {/* categories */}
@@ -23,6 +24,7 @@ export default function HomeScreenHeader() {
         title={'Shop by Category'}
         data={dummyData.categories}
         renderItem={category => <GradientBackgroundItem {...category} />}
+        onSeeAll={f => f}
       />
 
       {/* categories */}
@@ -35,6 +37,7 @@ export default function HomeScreenHeader() {
             title={category.text}
           />
         )}
+        onSeeAll={f => f}
       />
 
       {/* brands */}
@@ -47,6 +50,7 @@ export default function HomeScreenHeader() {
             logo={require('../assets/brands/brand_1.png')}
           />
         )}
+        onSeeAll={f => f}
       />
 
       {/* featured products */}
@@ -61,6 +65,7 @@ export default function HomeScreenHeader() {
             image={item.image}
           />
         )}
+        onSeeAll={f => f}
       />
 
       {/* best sellers */}
@@ -75,6 +80,7 @@ export default function HomeScreenHeader() {
             image={item.image}
           />
         )}
+        onSeeAll={f => f}
       />
 
       {/* All Products  */}

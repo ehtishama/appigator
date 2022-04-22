@@ -6,12 +6,13 @@ import LogoBackgroundItem from '../components/HorizontalList/LogoBackgroundItem'
 import {colors} from '../config/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import WhyBuyFromUs from '../components/WhyBuyFromUs';
+import {defaultStyles} from '../styles';
 
 export default function HomeScreenListFooter() {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.viewAll}>
-        <Text>View all products</Text>
+        <Text style={defaultStyles.textLight}>View all products</Text>
       </TouchableOpacity>
 
       <HorizontalList
@@ -24,6 +25,7 @@ export default function HomeScreenListFooter() {
             logo={require('../assets/brands/brand_1.png')}
           />
         )}
+        onSeeAll={f => f}
       />
 
       <WhyBuyFromUs />
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 32,
     padding: 8,
-    backgroundColor: colors.LIGHT,
+    backgroundColor: colors.LIGHT_BUTTON,
     alignItems: 'center',
     alignSelf: 'center',
     borderRadius: 4,

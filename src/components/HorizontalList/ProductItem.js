@@ -4,11 +4,11 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../../config/colors';
 
 const currency = '$';
-export default function ProductItem({title, price, image, style}) {
+export default function ProductItem({title, price, image, style, imageStyle}) {
   return (
     <View style={[styles.container, style]}>
       <TouchableOpacity style={styles.imgContainer}>
-        <Image source={image} style={styles.image} />
+        <Image source={image} style={[styles.image, imageStyle]} />
       </TouchableOpacity>
       <View style={styles.content}>
         <Text style={styles.title} numberOfLines={1}>
@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
   container: {
     // padding: 10,
     marginRight: 18,
-    alignItems: 'center',
+    // alignItems: 'center',
     // backgroundColor: 'red'
   },
+
   image: {
     width: 140,
     borderRadius: 6,
@@ -43,5 +44,6 @@ const styles = StyleSheet.create({
   },
   price: {
     fontWeight: '600',
+    color: colors.LOGO_COLOR,
   },
 });

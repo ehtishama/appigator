@@ -1,17 +1,20 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import {colors} from '../../config/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export default function ListHeader({title}) {
+import {colors} from '../../config/colors';
+
+export default function ListHeader({title, onPress}) {
   return (
     <View style={styles.header}>
       <Text style={styles.title} numberOfLines={1}>
         {title}
       </Text>
-      <TouchableOpacity>
-        <Text style={styles.textLight}>See All</Text>
-      </TouchableOpacity>
+      {onPress && (
+        <TouchableOpacity>
+          <Text style={styles.textLight}>See All</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

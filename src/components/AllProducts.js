@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import React from 'react';
 import ProductItem from './HorizontalList/ProductItem';
+import {colors} from '../config/colors';
 
 export default function AllProducts({
   products = [],
@@ -16,8 +17,10 @@ export default function AllProducts({
           price={item.price}
           image={item.image}
           style={styles.item}
+          imageStyle={styles.productImage}
         />
       )}
+      columnWrapperStyle={{marginLeft: 16}}
       keyExtractor={item => item.title}
       numColumns={2}
       ListHeaderComponent={ListHeaderComponent}
@@ -30,7 +33,11 @@ const styles = StyleSheet.create({
   container: {},
   item: {
     flex: 0.5,
-    marginRight: 0,
+    marginRight: 18,
     marginBottom: 20,
+  },
+  productImage: {
+    width: '100%',
+    maxHeight: 600,
   },
 });
