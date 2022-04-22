@@ -19,15 +19,15 @@ export default function HomeScreenHeader() {
 
       <HomeScreenCarousel />
 
-      {/* categories */}
-      <HorizontalList
+      {/* categories => item with gradient BG */}
+      {/* <HorizontalList
         title={'Shop by Category'}
         data={dummyData.categories}
         renderItem={category => <GradientBackgroundItem {...category} />}
         onSeeAll={f => f}
-      />
+      /> */}
 
-      {/* categories */}
+      {/* categories => item with an icon in it */}
       <HorizontalList
         title={'Shop by Category'}
         data={dummyData.categories}
@@ -40,8 +40,8 @@ export default function HomeScreenHeader() {
         onSeeAll={f => f}
       />
 
-      {/* brands */}
-      <HorizontalList
+      {/* brands => moved to HomeScreenFooter */}
+      {/* <HorizontalList
         title={'Shop by Brand'}
         data={dummyData.brands}
         renderItem={item => (
@@ -51,7 +51,7 @@ export default function HomeScreenHeader() {
           />
         )}
         onSeeAll={f => f}
-      />
+      /> */}
 
       {/* featured products */}
       <HorizontalList

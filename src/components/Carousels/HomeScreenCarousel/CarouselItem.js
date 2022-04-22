@@ -2,13 +2,10 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {colors} from '../../../config/colors';
 
-export default function CarouselItem() {
+export default function CarouselItem({image}) {
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../../../assets/products/product_1.jpg')}
-        style={styles.bannerImage}
-      />
+      <Image source={image} style={styles.bannerImage} />
     </View>
   );
 }

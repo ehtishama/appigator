@@ -4,57 +4,57 @@ export const dummyData = {
   products: [
     {
       title: 'Product 1',
-      price: '29.00',
+      price: '39.00',
       image: require('../assets/products/product_1.jpg'),
     },
     {
       title: 'Product 2',
-      price: '27.00',
+      price: '7.00',
       image: require('../assets/products/product_2.jpg'),
     },
     {
       title: 'Product 3',
-      price: '34.00',
+      price: '3.00',
       image: require('../assets/products/product_3.jpg'),
     },
     {
       title: 'Product 4',
-      price: '27.00',
+      price: '227.00',
       image: require('../assets/products/product_4.jpg'),
     },
     {
       title: 'Product 5',
-      price: '29.00',
+      price: '292.00',
       image: require('../assets/products/product_5.jpg'),
     },
     {
       title: 'Product 6',
-      price: '29.00',
+      price: '129.00',
       image: require('../assets/products/product_6.jpg'),
     },
     {
       title: 'Product 7',
-      price: '29.00',
+      price: '290.00',
       image: require('../assets/products/product_7.jpg'),
     },
     {
       title: 'Product 8',
-      price: '29.00',
+      price: '120.00',
       image: require('../assets/products/product_8.jpg'),
     },
     {
       title: 'Product 9',
-      price: '29.00',
+      price: '291.00',
       image: require('../assets/products/product_9.jpg'),
     },
     {
       title: 'Product 10',
-      price: '29.00',
+      price: '91.00',
       image: require('../assets/products/product_10.jpg'),
     },
     {
       title: 'Product 11',
-      price: '29.00',
+      price: '21.00',
       image: require('../assets/products/product_11.jpg'),
     },
   ],
@@ -76,5 +76,10 @@ export const dummyData = {
     {title: 'English', id: 1},
     {title: 'Arabic', id: 2},
     {title: 'French', id: 3},
+  ],
+  carouselItems: [
+    {id: 1, image: require('../assets/products/product_1.jpg')},
+    {id: 2, image: require('../assets/products/product_6.jpg')},
+    {id: 3, image: require('../assets/products/product_10.jpg')},
   ],
 };

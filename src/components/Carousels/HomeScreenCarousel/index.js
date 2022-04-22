@@ -3,20 +3,20 @@ import Carousel from 'react-native-snap-carousel';
 import React, {useState} from 'react';
 import CarouselItem from './CarouselItem';
 import {Pagination} from 'react-native-snap-carousel';
+import {dummyData} from '../../../api/dummyData';
 
 const carouselWidth = Dimensions.get('window').width - 18;
 export default function HomeScreenCarousel() {
-  const items = [1, 2, 3];
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const renderItem = ({item, index}) => <CarouselItem />;
+  const renderItem = ({item, index}) => <CarouselItem image={item.image} />;
 
   return (
     <View style={styles.container}>
       <Carousel
         loop
         autoplay
-        data={items}
+        data={dummyData.carouselItems}
         lockScrollWhileSnapping={true}
         renderItem={renderItem}
         sliderWidth={carouselWidth}
@@ -27,7 +27,7 @@ export default function HomeScreenCarousel() {
       />
 
       <Pagination
-        dotsLength={items.length}
+        dotsLength={dummyData.carouselItems.length}
         activeDotIndex={activeSlide}
         containerStyle={styles.pagination}
         dotStyle={styles.paginationDot}
