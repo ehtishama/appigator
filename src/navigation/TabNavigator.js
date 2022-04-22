@@ -25,7 +25,10 @@ export default function BottomTabNavigator() {
       <Tab.Screen
         name="Category"
         component={CategoriesScreen}
-        options={{tabBarIcon: props => <Icon name="bars" {...props} />}}
+        options={{
+          tabBarIcon: props => <Icon name="bars" {...props} />,
+          header: props => <DrawerHeader {...props} />,
+        }}
       />
       <Tab.Screen
         name="Account"
