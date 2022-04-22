@@ -9,6 +9,10 @@ export const colors = {
   TEXT: '#505050',
   TEXT_LIGHT: '#A8A8A8',
   LOGO_COLOR: '#f1968e',
+  DARK_100: '#424242',
+  DARK_200: '##393939',
+  DARK_300: '#292929',
+  DARK_400: '#212121',
 };
 
 export const gradient = {
