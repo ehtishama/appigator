@@ -67,4 +67,14 @@ export const dummyData = {
     {key: 5, text: 'All', colors: gradient.red},
   ],
   brands: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+  currencyOptinos: [
+    {title: 'Us Dollor', id: 1},
+    {title: 'Euro', id: 2},
+  ],
+  languageOptions: [
+    {title: 'English', id: 1},
+    {title: 'Arabic', id: 2},
+    {title: 'French', id: 3},
+  ],
 };

@@ -1,10 +1,12 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/AntDesign';
 import HorizonalLinkItem from './HorizonalLinkItem';
 import {colors} from '../../config/colors';
 import {defaultStyles} from '../../styles';
+import HorizontalSelectionList from './HorizontalSelectionList';
+import {dummyData} from '../../api/dummyData';
 
 export default function DrawerContent() {
   const hrLinks = [
@@ -12,6 +14,9 @@ export default function DrawerContent() {
     {key: 2, title: 'Address', iconName: 'pushpino'},
     {key: 3, title: 'Orders', iconName: 'shoppingcart'},
   ];
+
+  const [selectedCurrency, setSelectedCurrency] = useState(1);
+  const [selectedLanguage, setSelectedLanguage] = useState(1);
 
   return (
     <View style={styles.container}>
@@ -36,10 +41,21 @@ export default function DrawerContent() {
         ))}
       </View>
       {/* horizontal selection */}
+      <HorizontalSelectionList
+        options={dummyData.currencyOptinos}
+        selected={selectedCurrency}
+        onSelect={option => setSelectedCurrency(option.id)}
+      />
 
       {/* list of links */}
+      <View style={{flex: 1}} />
 
       {/* bottom selection */}
+      <HorizontalSelectionList
+        options={dummyData.languageOptions}
+        selected={selectedLanguage}
+        onSelect={selectedOption => setSelectedLanguage(selectedOption.id)}
+      />
     </View>
   );
 }
