@@ -4,11 +4,14 @@ import React from 'react';
 import {colors} from '../../config/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export default function IconItem({icon, title}) {
+export default function IconItem({icon, title, titleInside = false}) {
   return (
     <TouchableOpacity style={styles.container}>
-      <View style={styles.iconContainer}>{icon}</View>
-      <Text style={styles.text}>{title}</Text>
+      <View style={styles.iconContainer}>
+        {icon}
+        {titleInside && <Text style={styles.text}>{title}</Text>}
+      </View>
+      {!titleInside && <Text style={styles.text}>{title}</Text>}
     </TouchableOpacity>
   );
 }
@@ -27,5 +30,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: '600',
+    textAlign: 'center',
   },
 });

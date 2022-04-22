@@ -14,14 +14,17 @@ export default function WhyBuyFromUs() {
 
       <View style={styles.cards}>
         <IconItem
+          titleInside
           icon={<Icon name={'lock'} size={35} />}
           title="Secure Webshop"
         />
         <IconItem
+          titleInside
           icon={<MdIcon name={'support-agent'} size={35} />}
           title="Customer Advice"
         />
         <IconItem
+          titleInside
           icon={<McIcon name={'truck-delivery-outline'} size={35} />}
           title="Fast Delivery"
         />
