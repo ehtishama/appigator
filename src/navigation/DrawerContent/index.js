@@ -1,18 +1,25 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/AntDesign';
 import HorizonalLinkItem from './HorizonalLinkItem';
 import {colors} from '../../config/colors';
 import {defaultStyles} from '../../styles';
 import HorizontalSelectionList from './HorizontalSelectionList';
 import {dummyData} from '../../api/dummyData';
+import VerticalLinkItem from './VerticalLinkItem';
 
 export default function DrawerContent() {
   const hrLinks = [
     {key: 1, title: 'Profile', iconName: 'user'},
     {key: 2, title: 'Address', iconName: 'pushpino'},
     {key: 3, title: 'Orders', iconName: 'shoppingcart'},
+  ];
+
+  const vrLinks = [
+    {key: 1, title: 'Get in Touch'},
+    {key: 2, title: 'Support Tickets'},
+    {key: 3, title: 'About Appigator'},
   ];
 
   const [selectedCurrency, setSelectedCurrency] = useState(1);
@@ -30,6 +37,7 @@ export default function DrawerContent() {
           </Text>
         </TouchableOpacity>
       </View>
+
       {/* horizontal links */}
       <View style={styles.hrLinks}>
         {hrLinks.map(link => (
@@ -40,6 +48,7 @@ export default function DrawerContent() {
           />
         ))}
       </View>
+
       {/* horizontal selection */}
       <HorizontalSelectionList
         options={dummyData.currencyOptinos}
@@ -48,7 +57,13 @@ export default function DrawerContent() {
       />
 
       {/* list of links */}
-      <View style={{flex: 1}} />
+      <View style={defaultStyles.flex1}>
+        <FlatList
+          data={vrLinks}
+          keyExtractor={item => item.key}
+          renderItem={({item}) => <VerticalLinkItem title={item.title} />}
+        />
+      </View>
 
       {/* bottom selection */}
       <HorizontalSelectionList

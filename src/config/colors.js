@@ -13,6 +13,7 @@ export const colors = {
   DARK_200: '#393939',
   DARK_300: '#292929',
   DARK_400: '#212121',
+  BORDER_ON_DARK: '#535353',
 };
 
 export const gradient = {
