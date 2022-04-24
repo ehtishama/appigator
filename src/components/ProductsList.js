@@ -4,7 +4,7 @@ import React from 'react';
 import ProductItem from './HorizontalList/ProductItem';
 import {FlatList} from 'react-native-gesture-handler';
 
-export default function AllProducts({
+export default function ProductsList({
   products = [],
   ListHeaderComponent,
   ListFooterComponent,

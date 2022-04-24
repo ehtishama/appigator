@@ -1,9 +1,10 @@
-import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {colors} from '../../config/colors';
-import {defaultStyles} from '../../styles';
+import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/AntDesign';
+
+import {colors} from '../../../config/colors';
+import {defaultStyles} from '../../../styles';
 
 export default function SelectionItem({selected, title, onSelect}) {
   return (

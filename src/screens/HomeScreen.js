@@ -3,14 +3,14 @@ import {StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {dummyData} from '../api/dummyData';
-import AllProducts from '../components/AllProducts';
+import ProductsList from '../components/ProductsList';
 import HomeScreenHeader from './HomeScreenHeader';
 import HomeScreenListFooter from './HomeScreenListFooter';
 
 export default function HomeScreen() {
   return (
     <SafeAreaView>
-      <AllProducts
+      <ProductsList
         products={dummyData.products}
         ListHeaderComponent={HomeScreenHeader}
         ListFooterComponent={HomeScreenListFooter}

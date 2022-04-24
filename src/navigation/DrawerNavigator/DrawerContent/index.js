@@ -2,12 +2,14 @@ import {View, Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/AntDesign';
+
 import HorizonalLinkItem from './HorizonalLinkItem';
-import {colors} from '../../config/colors';
-import {defaultStyles} from '../../styles';
+
 import HorizontalSelectionList from './HorizontalSelectionList';
-import {dummyData} from '../../api/dummyData';
 import VerticalLinkItem from './VerticalLinkItem';
+import {dummyData} from '../../../api/dummyData';
+import {defaultStyles} from '../../../styles';
+import {colors} from '../../../config/colors';
 
 export default function DrawerContent() {
   const hrLinks = [

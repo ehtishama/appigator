@@ -2,8 +2,8 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {colors} from '../../config/colors';
-import {defaultStyles} from '../../styles';
+import {colors} from '../../../config/colors';
+import {defaultStyles} from '../../../styles';
 
 export default function VerticalLinkItem({title, onPress}) {
   return (

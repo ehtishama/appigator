@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {defaultStyles} from '../../styles';
+import {defaultStyles} from '../../../styles';
 
 export default function HorizonalLinkItem({icon, title}) {
   return (

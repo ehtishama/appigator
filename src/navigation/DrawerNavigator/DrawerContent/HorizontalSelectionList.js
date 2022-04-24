@@ -2,7 +2,7 @@ import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import SelectionItem from './SelectionItem';
 
-import {colors} from '../../config/colors';
+import {colors} from '../../../config/colors';
 
 export default function HorizontalSelectionList({options, selected, onSelect}) {
   return (
