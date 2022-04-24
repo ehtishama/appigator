@@ -60,11 +60,11 @@ export const dummyData = {
   ],
 
   categories: [
-    {key: 1, text: 'Woman', colors: gradient.blue},
-    {key: 2, text: 'Man', colors: gradient.red},
-    {key: 3, text: 'Kids', colors: gradient.green},
-    {key: 4, text: 'Recent', colors: gradient.blue},
-    {key: 5, text: 'All', colors: gradient.red},
+    {id: 1, text: 'Woman', colors: gradient.blue},
+    {id: 2, text: 'Man', colors: gradient.red},
+    {id: 3, text: 'Kids', colors: gradient.green},
+    {id: 4, text: 'Recent', colors: gradient.blue},
+    {id: 5, text: 'All', colors: gradient.red},
   ],
   brands: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 

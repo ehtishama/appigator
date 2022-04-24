@@ -1,6 +1,7 @@
 import React from 'react';
-import {ScrollView, View, StyleSheet} from 'react-native';
-import {shadows} from '../../config/shadows';
+import {View, StyleSheet} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+
 import ListHeader from './ListHeader';
 
 export default function HorizontalList({
@@ -11,13 +12,14 @@ export default function HorizontalList({
   listStyles,
 }) {
   return (
-    <View style={shadows.sm}>
-      <View style={styles.container}>
-        {title && <ListHeader title={title} onPress={onSeeAll} />}
-        <ScrollView horizontal style={[styles.scrollContainer, listStyles]}>
-          {data.map(renderItem)}
-        </ScrollView>
-      </View>
+    <View style={styles.container}>
+      {title && <ListHeader title={title} onPress={onSeeAll} />}
+      <ScrollView
+        style={[styles.scrollContainer, listStyles]}
+        horizontal
+        showsHorizontalScrollIndicator={false}>
+        {data.map(renderItem)}
+      </ScrollView>
     </View>
   );
 }
@@ -26,9 +28,8 @@ const styles = StyleSheet.create({
   container: {marginBottom: 18},
 
   scrollContainer: {
-    paddingHorizontal: 14,
-    paddingBottom: 10,
-    overflow: 'visible',
     padding: 20,
+    paddingLeft: 14,
+    paddingRight: 20,
   },
 });

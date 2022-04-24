@@ -33,6 +33,7 @@ export default function HomeScreenHeader() {
         data={dummyData.categories}
         renderItem={category => (
           <IconItem
+            key={category.id}
             icon={<Icon name="shoppingcart" size={44} />}
             title={category.text}
           />
