@@ -1,12 +1,13 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import HorizontalList from '../components/HorizontalList';
-import {dummyData} from '../api/dummyData';
-import LogoBackgroundItem from '../components/HorizontalList/LogoBackgroundItem';
-import {colors} from '../config/colors';
+
+import HorizontalList from '../../components/HorizontalList';
+import {dummyData} from '../../api/dummyData';
+import LogoBackgroundItem from '../../components/HorizontalList/LogoBackgroundItem';
+import {colors} from '../../config/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import WhyBuyFromUs from '../components/WhyBuyFromUs';
-import {defaultStyles} from '../styles';
+import WhyBuyFromUs from '../../components/WhyBuyFromUs';
+import {defaultStyles} from '../../styles';
 
 export default function HomeScreenListFooter() {
   return (
@@ -22,7 +23,7 @@ export default function HomeScreenListFooter() {
         renderItem={item => (
           <LogoBackgroundItem
             key={item}
-            logo={require('../assets/brands/brand_1.png')}
+            logo={require('../../assets/brands/brand_1.png')}
           />
         )}
         onSeeAll={f => f}

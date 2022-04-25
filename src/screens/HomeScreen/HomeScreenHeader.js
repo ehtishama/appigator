@@ -2,17 +2,17 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import {dummyData} from '../api/dummyData';
-import HomeScreenCarousel from '../components/Carousels/HomeScreenCarousel';
-import HorizontalList from '../components/HorizontalList';
-import GradientBackgroundItem from '../components/HorizontalList/GradientBackgroundItem';
-import IconItem from '../components/HorizontalList/IconItem';
-import ListHeader from '../components/HorizontalList/ListHeader';
-import LogoBackgroundItem from '../components/HorizontalList/LogoBackgroundItem';
-import ProductItem from '../components/HorizontalList/ProductItem';
-import SearchBox from '../components/SearchBox';
+import {dummyData} from '../../api/dummyData';
+import HomeScreenCarousel from '../../components/Carousels/HomeScreenCarousel';
+import HorizontalList from '../../components/HorizontalList';
+import GradientBackgroundItem from '../../components/HorizontalList/GradientBackgroundItem';
+import IconItem from '../../components/HorizontalList/IconItem';
+import ListHeader from '../../components/HorizontalList/ListHeader';
+import LogoBackgroundItem from '../../components/HorizontalList/LogoBackgroundItem';
+import ProductItem from '../../components/HorizontalList/ProductItem';
+import SearchBox from '../../components/SearchBox';
 
-export default function HomeScreenHeader() {
+export default function HomeScreenListHeader() {
   return (
     <View style={styles.container}>
       <SearchBox />

@@ -66,6 +66,52 @@ export const dummyData = {
     {id: 4, text: 'Recent', colors: gradient.blue},
     {id: 5, text: 'All', colors: gradient.red},
   ],
+
+  subCategories: [
+    {
+      id: 1,
+      text: 'T-Shirts',
+      colors: gradient.blue,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 2,
+      text: 'Jackets',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 3,
+      text: "Men's Sets",
+      colors: gradient.green,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 4,
+      text: 'Sweater',
+      colors: gradient.blue,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 5,
+      text: 'Suits',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 6,
+      text: 'Coats',
+      colors: gradient.blue,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 7,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+  ],
+
   brands: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 
   currencyOptinos: [

@@ -10,4 +10,8 @@ export const defaultStyles = StyleSheet.create({
   mx_sm: {
     marginHorizontal: 8,
   },
+  border_bottom: {
+    borderBottomColor: colors.LOGO_COLOR,
+    borderBottomWidth: 4,
+  },
 });

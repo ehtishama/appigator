@@ -3,11 +3,19 @@ import React from 'react';
 
 import {colors} from '../../config/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {defaultStyles} from '../../styles';
 
-export default function IconItem({icon, title, titleInside = false}) {
+export default function IconItem({
+  icon,
+  title,
+  titleInside = false,
+  selected,
+  onPress,
+}) {
   return (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.iconContainer}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View
+        style={[styles.iconContainer, selected && defaultStyles.border_bottom]}>
         {icon}
         {titleInside && <Text style={styles.text}>{title}</Text>}
       </View>
