@@ -11,11 +11,16 @@ export default function IconItem({
   titleInside = false,
   selected,
   onPress,
+  wrapperStyle,
 }) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View
-        style={[styles.iconContainer, selected && defaultStyles.border_bottom]}>
+        style={[
+          styles.iconContainer,
+          wrapperStyle,
+          selected && defaultStyles.border_bottom,
+        ]}>
         {icon}
         {titleInside && <Text style={styles.text}>{title}</Text>}
       </View>

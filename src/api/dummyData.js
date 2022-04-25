@@ -1,3 +1,7 @@
+import React from 'react';
+import IoniIcon from 'react-native-vector-icons/Ionicons';
+import FAIcon from 'react-native-vector-icons/FontAwesome';
+
 import {gradient} from '../config/colors';
 
 export const dummyData = {
@@ -60,11 +64,36 @@ export const dummyData = {
   ],
 
   categories: [
-    {id: 1, text: 'Woman', colors: gradient.blue},
-    {id: 2, text: 'Man', colors: gradient.red},
-    {id: 3, text: 'Kids', colors: gradient.green},
-    {id: 4, text: 'Recent', colors: gradient.blue},
-    {id: 5, text: 'All', colors: gradient.red},
+    {
+      id: 1,
+      text: 'Women',
+      colors: gradient.blue,
+      icon: <IoniIcon name="woman-outline" size={40} />,
+    },
+    {
+      id: 2,
+      text: 'Men',
+      colors: gradient.red,
+      icon: <IoniIcon name="man-outline" size={35} />,
+    },
+    {
+      id: 3,
+      text: 'Kids',
+      colors: gradient.green,
+      icon: <FAIcon name="child" size={35} />,
+    },
+    {
+      id: 4,
+      text: 'Recent',
+      colors: gradient.blue,
+      icon: <IoniIcon name="time-outline" size={35} />,
+    },
+    {
+      id: 5,
+      text: 'All',
+      colors: gradient.red,
+      icon: <IoniIcon name="list-outline" size={35} />,
+    },
   ],
 
   subCategories: [
@@ -72,40 +101,106 @@ export const dummyData = {
       id: 1,
       text: 'T-Shirts',
       colors: gradient.blue,
-      image: require('../assets/products/product_12.jpg'),
+      image: require('../assets/products/product_1.jpg'),
     },
     {
       id: 2,
       text: 'Jackets',
       colors: gradient.red,
-      image: require('../assets/products/product_12.jpg'),
+      image: require('../assets/products/product_2.jpg'),
     },
     {
       id: 3,
       text: "Men's Sets",
       colors: gradient.green,
-      image: require('../assets/products/product_12.jpg'),
+      image: require('../assets/products/product_1.jpg'),
     },
     {
       id: 4,
       text: 'Sweater',
       colors: gradient.blue,
-      image: require('../assets/products/product_12.jpg'),
+      image: require('../assets/products/product_2.jpg'),
     },
     {
       id: 5,
       text: 'Suits',
       colors: gradient.red,
-      image: require('../assets/products/product_12.jpg'),
+      image: require('../assets/products/product_3.jpg'),
     },
     {
       id: 6,
       text: 'Coats',
       colors: gradient.blue,
-      image: require('../assets/products/product_12.jpg'),
+      image: require('../assets/products/product_4.jpg'),
     },
     {
       id: 7,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_5.jpg'),
+    },
+    {
+      id: 8,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_6.jpg'),
+    },
+    {
+      id: 9,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_7.jpg'),
+    },
+    {
+      id: 10,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_8.jpg'),
+    },
+    {
+      id: 11,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_9.jpg'),
+    },
+    {
+      id: 12,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_10.jpg'),
+    },
+    {
+      id: 13,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_11.jpg'),
+    },
+    {
+      id: 14,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 15,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 16,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 17,
+      text: 'Jeans',
+      colors: gradient.red,
+      image: require('../assets/products/product_12.jpg'),
+    },
+    {
+      id: 18,
       text: 'Jeans',
       colors: gradient.red,
       image: require('../assets/products/product_12.jpg'),

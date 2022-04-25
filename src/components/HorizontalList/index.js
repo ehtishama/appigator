@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
   container: {marginBottom: 18},
 
   scrollContainer: {
-    padding: 20,
-    paddingLeft: 14,
+    paddingLeft: 16,
     paddingRight: 20,
+    paddingTop: 10,
   },
 });

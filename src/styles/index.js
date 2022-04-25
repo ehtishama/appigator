@@ -14,4 +14,13 @@ export const defaultStyles = StyleSheet.create({
     borderBottomColor: colors.LOGO_COLOR,
     borderBottomWidth: 4,
   },
+  subTitle: {
+    fontSize: 20,
+    color: colors.BLACK,
+  },
+  centerXY: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
