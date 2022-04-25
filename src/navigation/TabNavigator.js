@@ -8,6 +8,7 @@ import CategoriesScreen from '../screens/CategoriesScreen';
 import AccountScreen from '../screens/AccountScreen';
 import ContactScreen from '../screens/ContactScreen';
 import DrawerHeader from '../components/Header/DrawerHeader';
+import StackNavigator from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,11 +24,12 @@ export default function BottomTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Category"
+        name="CategoriesScreen"
         component={CategoriesScreen}
         options={{
           tabBarIcon: props => <Icon name="bars" {...props} />,
           header: props => <DrawerHeader {...props} />,
+          title: 'Categories',
         }}
       />
       <Tab.Screen
