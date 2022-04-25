@@ -11,7 +11,7 @@ export default function ListHeader({title, onPress}) {
         {title}
       </Text>
       {onPress && (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <Text style={styles.textLight}>See All</Text>
         </TouchableOpacity>
       )}

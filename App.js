@@ -1,12 +1,13 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {AppTheme} from './src/config/theme';
-import DrawerNavigator from './src/navigation/DrawerNavigator';
+
+import StackNavigator from './src/navigation/StackNavigator';
 
 const App = () => {
   return (
     <NavigationContainer theme={AppTheme}>
-      <DrawerNavigator />
+      <StackNavigator />
     </NavigationContainer>
   );
 };

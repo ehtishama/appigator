@@ -1,18 +1,33 @@
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AdIcon from 'react-native-vector-icons/AntDesign';
 
 import {colors} from '../../config/colors';
 import SearchBox from '../SearchBox';
 
-export default function DrawerHeader() {
+export default function DrawerHeader({title, actionRight}) {
   const navigation = useNavigation();
   const isPrevious = navigation.canGoBack();
 
   const openDrawer = () => {
     navigation.dispatch(DrawerActions.toggleDrawer());
+  };
+
+  const renderContent = () => {
+    if (title) {
+      return <Text style={styles.title}>{title}</Text>;
+    }
+    if (isPrevious) {
+      return <SearchBox iconOnRight inputStyle={styles.inputStyle} />;
+    }
+    return (
+      <Image
+        source={require('../../assets/app_logo.png')}
+        style={styles.logo}
+      />
+    );
   };
 
   return (
@@ -26,16 +41,7 @@ export default function DrawerHeader() {
           <Icon name="reorder-three" size={30} color={colors.BLACK} />
         </TouchableOpacity>
       )}
-      <View style={styles.logoContainer}>
-        {isPrevious ? (
-          <SearchBox iconOnRight inputStyle={styles.inputStyle} />
-        ) : (
-          <Image
-            source={require('../../assets/app_logo.png')}
-            style={styles.logo}
-          />
-        )}
-      </View>
+      <View style={styles.logoContainer}>{renderContent()}</View>
       <TouchableOpacity>
         <Icon name="md-cart-outline" size={30} color={colors.BLACK} />
       </TouchableOpacity>
