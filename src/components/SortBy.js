@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {RadioButton} from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 import {dummyData} from '../api/dummyData';
 import {colors} from '../config/colors';
 import {defaultStyles} from '../styles';
+import SortByItem from './SortByItem';
 
 export default function SortBy({onClose}) {
+  const [checkedOptionId, setCheckedOptionId] = useState(1);
+
+  const handleCheck = id => {
+    setCheckedOptionId(id);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -23,10 +31,13 @@ export default function SortBy({onClose}) {
 
       <View style={styles.body}>
         {dummyData.sortBy.map(type => (
-          <TouchableOpacity style={styles.item}>
-            {/* radio button here */}
-            <Text>{type.title}</Text>
-          </TouchableOpacity>
+          <SortByItem
+            key={type.id}
+            id={type.id}
+            title={type.title}
+            checkedId={checkedOptionId}
+            onPress={() => handleCheck(type.id)}
+          />
         ))}
       </View>
     </View>
@@ -54,8 +65,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   item: {
-    paddingVertical: 16,
+    paddingVertical: 8,
     borderColor: colors.LIGHT_BACKGROUND,
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

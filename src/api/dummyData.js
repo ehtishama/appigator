@@ -228,7 +228,7 @@ export const dummyData = {
     {id: 2, title: 'Title: A-Z'},
     {id: 3, title: 'Title: Z-A'},
     {id: 4, title: 'Price: Low to High'},
-    {id: 4, title: 'Price: High to Low'},
+    {id: 5, title: 'Price: High to Low'},
   ],
   filterOptions: [
     {
