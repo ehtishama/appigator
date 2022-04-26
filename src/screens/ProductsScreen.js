@@ -18,7 +18,7 @@ export default function ProductsScreen() {
   navigation.setOptions({title});
 
   // UI state
-  const [sortModalOpen, setSortModalOpen] = useState(true);
+  const [sortModalOpen, setSortModalOpen] = useState(false);
 
   return (
     <View style={styles.container}>
