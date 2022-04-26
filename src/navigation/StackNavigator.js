@@ -31,23 +31,20 @@ export default function StackNavigator() {
         component={WishlistScreen}
         options={{
           title: 'Wish List',
-          header: ({options: {title}}) => <DrawerHeader title={title} />,
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
+          ),
         }}
       />
-      <Stack.Screen
-        name="AccountScreen"
-        component={AccountScreen}
-        options={{
-          title: 'Account',
-          header: ({options: {title}}) => <DrawerHeader title={title} />,
-        }}
-      />
+
       <Stack.Screen
         name="VoucherScreen"
         component={VoucherScreen}
         options={{
           title: 'Voucher',
-          header: ({options: {title}}) => <DrawerHeader title={title} />,
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
+          ),
         }}
       />
     </Stack.Navigator>

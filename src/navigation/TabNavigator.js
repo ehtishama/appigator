@@ -37,7 +37,7 @@ export default function BottomTabNavigator() {
         component={AccountScreen}
         options={{
           tabBarIcon: props => <MDIcon name="account" {...props} />,
-          header: props => <DrawerHeader {...props} />,
+          header: props => <DrawerHeader {...props} title={'Account'} />,
         }}
       />
       <Tab.Screen

@@ -10,7 +10,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../config/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-export default function AccountScreen({navigation}) {
+import {useNavigation} from '@react-navigation/native';
+export default function AccountScreen() {
+  const navigation = useNavigation();
+  navigation.setOptions({title: 'Account Screen'});
+
   return (
     <View style={styles.container}>
       <View style={styles.profileLink}>
