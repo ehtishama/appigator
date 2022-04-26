@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Checkbox} from 'react-native-paper';
 import {colors} from '../../config/colors';
 
-export default function CheckBoxItem({title, checked = false}) {
+export default function CheckBoxItem({title, checked = false, stock}) {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleCheck = () => {
@@ -21,7 +21,7 @@ export default function CheckBoxItem({title, checked = false}) {
         color={colors.LOGO_COLOR}
         onPress={handleCheck}
       />
-      <Text>{title}</Text>
+      <Text>{`${title} (${stock})`}</Text>
     </View>
   );
 }

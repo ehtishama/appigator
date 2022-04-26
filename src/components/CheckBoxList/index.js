@@ -10,7 +10,9 @@ export default function CheckBoxList({title, options}) {
       <Text style={styles.title}>{title}</Text>
       <FlatList
         data={options}
-        renderItem={({item}) => <CheckBoxItem title={item.title} />}
+        renderItem={({item}) => (
+          <CheckBoxItem title={item.title} stock={item.stock} />
+        )}
         numColumns={2}
         columnWrapperStyle={styles.columnWrapperStyle}
         listKey={title}

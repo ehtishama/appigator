@@ -27,7 +27,7 @@ export default function FilterModal({visible, onClose}) {
         ListHeaderComponent={
           <>
             <Text style={styles.header}>Search Results</Text>
-            {dummyData.filterOptions.map((option, idx) => (
+            {dummyData.filterOptions.map(option => (
               <CheckBoxList title={option.title} options={option.options} />
             ))}
           </>
@@ -40,12 +40,21 @@ export default function FilterModal({visible, onClose}) {
 
 const styles = StyleSheet.create({
   container: {},
-  action: {alignSelf: 'flex-end', padding: 16, position: 'absolute', zIndex: 1},
+  action: {
+    alignSelf: 'flex-end',
+    padding: 8,
+    zIndex: 1,
+    position: 'absolute',
+    // borderWidth: 1,
+    top: 10,
+    right: 10,
+  },
   header: {
     fontSize: 26,
     textAlign: 'center',
     fontWeight: '600',
-    marginTop: 20,
+    paddingVertical: 16,
+    marginTop: 14,
     // backgroundColor: 'red',
   },
 });
