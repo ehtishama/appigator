@@ -1,13 +1,14 @@
+import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import React from 'react';
 import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import {Badge} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/AntDesign';
+
 import {dummyData} from '../../api/dummyData';
 import HorizontalList from '../../components/HorizontalList';
 import ProductItem from '../../components/HorizontalList/ProductItem';
-
+import QuantityCounter from '../../components/QuantityCounter';
 import {colors} from '../../config/colors';
 import {defaultStyles} from '../../styles';
 
@@ -17,82 +18,113 @@ export default function ProductDetailsScreen() {
     params: {product},
   } = useRoute();
 
+  // UI state
+  const [productQuantity, setProductQuantity] = useState(1);
+
   return (
-    <ScrollView style={styles.container}>
-      {/* Banner */}
-      <View style={styles.banner}>
-        <Image style={styles.bannerImage} source={product.image} />
-        <TouchableOpacity style={styles.bannerAction}>
-          <Icon name="hearto" size={30} />
-        </TouchableOpacity>
-
-        <Badge
-          selectionColor={colors.LOGO_COLOR}
-          style={[styles.badge, styles.stockIndicator]}>
-          In Stock
-        </Badge>
-        <Badge
-          selectionColor={colors.LOGO_COLOR}
-          style={[styles.badge, styles.pagination]}>
-          (1/7)
-        </Badge>
-      </View>
-
-      {/* title section */}
-      <View style={styles.header}>
-        <Text style={styles.title}>{product.title}</Text>
-        <View style={styles.priceContainer}>
-          <Text style={styles.price}>${product.price}</Text>
-          <Text style={styles.oldPrice}>${Number(product.price) + 10.99}</Text>
-        </View>
-      </View>
-
-      {/* quantity */}
-      <View style={styles.productOption}>
-        <Text style={styles.optionTitle}>Quantity</Text>
-        <View style={styles.quantityContainer}>
-          <TouchableOpacity style={styles.action}>
-            <Text>-</Text>
+    <>
+      <ScrollView style={styles.container}>
+        {/* banner */}
+        <View style={styles.banner}>
+          <Image style={styles.bannerImage} source={product.image} />
+          <TouchableOpacity style={styles.bannerAction}>
+            <Icon name="hearto" size={30} />
           </TouchableOpacity>
-          <TextInput
-            placeholder="quantity"
-            value="1"
-            style={styles.quantityInput}
-          />
-          <TouchableOpacity style={styles.action}>
-            <Text>+</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
 
-      {/* shipping */}
-      <View style={styles.productOption}>
-        <Text style={styles.optionTitle}>Shipping</Text>
-        <View style={defaultStyles.flexRow}>
-          <Text style={[defaultStyles.mx_sm, defaultStyles.bold]}>$0.50</Text>
-          <Text>(via Cainiao Economy Global)</Text>
+          <Badge
+            selectionColor={colors.LOGO_COLOR}
+            style={[styles.badge, styles.stockIndicator]}>
+            In Stock
+          </Badge>
+          <Badge
+            selectionColor={colors.LOGO_COLOR}
+            style={[styles.badge, styles.pagination]}>
+            (1/7)
+          </Badge>
         </View>
-      </View>
 
-      {/* related products */}
-      <View style={styles.relatedProductsContainer}>
-        <HorizontalList
-          title={'Related Products'}
-          data={dummyData.products}
-          renderItem={item => (
-            <ProductItem
-              key={item.title}
-              title={item.title}
-              price={item.price}
-              image={item.image}
-            />
-          )}
-          onSeeAll={() =>
-            navigation.navigate('ProductsScreen', {title: 'Featured Products'})
-          }
+        {/* title section */}
+        <View style={styles.header}>
+          <Text style={styles.title}>{product.title}</Text>
+          <View style={styles.priceContainer}>
+            <Text style={styles.price}>${product.price}</Text>
+            <Text style={styles.oldPrice}>
+              ${(Number(product.price) + 10.99).toFixed(2)}
+            </Text>
+          </View>
+        </View>
+
+        {/* quantity */}
+        <QuantityCounter
+          value={productQuantity}
+          onChange={n => setProductQuantity(n)}
         />
+
+        {/* shipping */}
+        <View style={styles.productOption}>
+          <Text style={styles.optionTitle}>Shipping</Text>
+          <View style={defaultStyles.flexRow}>
+            <Text style={[defaultStyles.mx_sm, defaultStyles.bold]}>$0.50</Text>
+            <Text>(via Cainiao Economy Global)</Text>
+          </View>
+        </View>
+
+        {/* related products */}
+        <View style={styles.relatedProductsContainer}>
+          <HorizontalList
+            title={'Related Products'}
+            data={dummyData.products}
+            renderItem={item => (
+              <ProductItem
+                key={item.title}
+                title={item.title}
+                price={item.price}
+                image={item.image}
+              />
+            )}
+            onSeeAll={() =>
+              navigation.navigate('ProductsScreen', {
+                title: 'Featured Products',
+              })
+            }
+          />
+        </View>
+
+        {/* description */}
+        <View style={styles.description}>
+          <Text style={[defaultStyles.bold, defaultStyles.subTitle]}>
+            Description
+          </Text>
+          <Text>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus
+            libero culpa amet nisi distinctio obcaecati, enim praesentium itaque
+            qui nihil unde, est perferendis aspernatur, excepturi possimus quam?
+            Eveniet, ab minima? Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Ab laudantium vel beatae. Dolor assumenda hic
+            libero nostrum eaque. Illum exercitationem laudantium, commodi sunt
+            porro iste omnis veniam natus ratione cum!
+          </Text>
+          <Image
+            style={{width: '100%', height: 360, marginVertical: 14}}
+            source={product.image}
+          />
+
+          <Image
+            style={{width: '100%', height: 360, marginVertical: 14}}
+            source={product.image}
+          />
+        </View>
+      </ScrollView>
+      {/* Add to cart */}
+      <View style={styles.cartContainer}>
+        <Text style={styles.price}>$27.00</Text>
+        <TouchableOpacity style={styles.addToCartBtn}>
+          <Text style={[defaultStyles.textLight, defaultStyles.bold]}>
+            Add To Cart
+          </Text>
+        </TouchableOpacity>
       </View>
-    </ScrollView>
+    </>
   );
 }
 
@@ -150,7 +182,6 @@ const styles = StyleSheet.create({
     color: colors.LOGO_COLOR,
     marginRight: 8,
   },
-
   oldPrice: {
     textDecorationLine: 'line-through',
     fontSize: 18,
@@ -168,28 +199,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
-  quantityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    overflow: 'hidden',
-  },
-  quantityInput: {
-    padding: 0,
-    borderWidth: 1,
-    borderColor: colors.LIGHT,
-    width: 60,
-    textAlign: 'center',
-  },
-  action: {
-    backgroundColor: colors.LIGHT_BACKGROUND,
-    height: 30,
-    width: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: colors.LIGHT,
-  },
   relatedProductsContainer: {
     marginVertical: 20,
+  },
+  cartContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderColor: colors.LIGHT,
+  },
+  addToCartBtn: {
+    backgroundColor: colors.LOGO_COLOR,
+    paddingHorizontal: 26,
+    paddingVertical: 12,
+    borderRadius: 20,
+  },
+  description: {
+    paddingHorizontal: 16,
   },
 });
