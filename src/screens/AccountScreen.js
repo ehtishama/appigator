@@ -11,6 +11,7 @@ import {colors} from '../config/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {useNavigation} from '@react-navigation/native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 export default function AccountScreen() {
   const navigation = useNavigation();
   navigation.setOptions({title: 'Account Screen'});
@@ -26,7 +27,12 @@ export default function AccountScreen() {
             }}
           />
         </View>
-        <Text style={styles.userName}>Kashif Mehmood</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('UpdateProfileScreen');
+          }}>
+          <Text style={styles.userName}>Kashif Mehmood</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.linksContainer}>
         <AccounItem

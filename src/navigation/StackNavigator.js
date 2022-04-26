@@ -5,8 +5,8 @@ import ProductsScreen from '../screens/ProductsScreen';
 import DrawerNavigator from './DrawerNavigator';
 import DrawerHeader from '../components/Header/DrawerHeader';
 import WishlistScreen from '../screens/WishListScreen';
-import AccountScreen from '../screens/AccountScreen';
 import VoucherScreen from '../screens/VoucherScreen';
+import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +42,16 @@ export default function StackNavigator() {
         component={VoucherScreen}
         options={{
           title: 'Voucher',
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="UpdateProfileScreen"
+        component={UpdateProfileScreen}
+        options={{
+          title: 'Update Profile',
           header: ({options: {title}}) => (
             <DrawerHeader title={title} actionRightShown={false} />
           ),

@@ -52,7 +52,16 @@ export default function BottomTabNavigator() {
       <Tab.Screen
         name="Contact"
         component={ContactScreen}
-        options={{tabBarIcon: props => <MDIcon name="headphones" {...props} />}}
+        options={{
+          tabBarIcon: props => <MDIcon name="headphones" {...props} />,
+          header: props => (
+            <DrawerHeader
+              {...props}
+              title={'Customer Care'}
+              actionRightShown={false}
+            />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
