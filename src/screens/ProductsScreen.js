@@ -50,7 +50,9 @@ export default function ProductsScreen() {
             price={item.price}
             style={styles.productItem}
             imageStyle={styles.productImage}
-            onPress={() => console.log('pressed')}
+            onPress={() =>
+              navigation.navigate('ProductDetailsScreen', {product: item})
+            }
           />
         )}
         keyExtractor={item => item.title}
