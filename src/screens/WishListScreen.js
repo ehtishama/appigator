@@ -49,7 +49,11 @@ export default function WishlistScreen(params) {
           <Text style={[styles.textName]}>{item.name}</Text>
           <Text style={[styles.textPrice]}>{'PKR ' + item.title}</Text>
         </View>
-        <View style={{alignItems: 'flex-end', marginLeft: '13%'}}>
+        <View
+          style={{
+            position: 'absolute',
+            right: 0,
+          }}>
           <AntDesign name="hearto" size={20} color="#000" />
         </View>
       </View>
@@ -79,6 +83,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 14,
     height: 130,
     borderRadius: 8,
+    position: 'relative',
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: colors.LIGHT,
