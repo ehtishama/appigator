@@ -87,10 +87,14 @@ const styles = StyleSheet.create({
   drawerAction: {},
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '600',
     textTransform: 'capitalize',
+    // color: colors.BLACK,
+    paddingVertical: 4,
   },
-  rightActions: {},
+  rightActions: {
+    backgroundColor: 'red',
+  },
   inputStyle: {
     padding: 5,
   },
