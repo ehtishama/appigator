@@ -9,6 +9,7 @@ import {dummyData} from '../api/dummyData';
 import ProductItem from '../components/HorizontalList/ProductItem';
 import OverlayModal from '../components/OverlayModal';
 import SortBy from '../components/SortBy';
+import FilterModal from '../components/FilterModal';
 
 export default function ProductsScreen() {
   const navigation = useNavigation();
@@ -19,6 +20,7 @@ export default function ProductsScreen() {
 
   // UI state
   const [sortModalOpen, setSortModalOpen] = useState(false);
+  const [filterModalOpen, setFilterModalOpen] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -31,7 +33,9 @@ export default function ProductsScreen() {
             onPress={() => setSortModalOpen(true)}>
             <Icon name="sort-amount-up-alt" size={25} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.action}>
+          <TouchableOpacity
+            style={styles.action}
+            onPress={() => setFilterModalOpen(true)}>
             <ADIcon name="filter" size={25} />
           </TouchableOpacity>
         </View>
@@ -57,6 +61,11 @@ export default function ProductsScreen() {
       <OverlayModal visible={sortModalOpen}>
         <SortBy onClose={() => setSortModalOpen(false)} />
       </OverlayModal>
+
+      <FilterModal
+        visible={filterModalOpen}
+        onClose={() => setFilterModalOpen(false)}
+      />
     </View>
   );
 }
