@@ -23,4 +23,7 @@ export const defaultStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  action: {
+    padding: 8,
+  },
 });

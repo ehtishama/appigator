@@ -223,4 +223,11 @@ export const dummyData = {
     {id: 2, image: require('../assets/products/product_6.jpg')},
     {id: 3, image: require('../assets/products/product_10.jpg')},
   ],
+  sortBy: [
+    {id: 1, title: 'Latest'},
+    {id: 2, title: 'Title: A-Z'},
+    {id: 3, title: 'Title: Z-A'},
+    {id: 4, title: 'Price: Low to High'},
+    {id: 4, title: 'Price: High to Low'},
+  ],
 };

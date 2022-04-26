@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {FlatList} from 'react-native-gesture-handler';
@@ -7,12 +7,18 @@ import ADIcon from 'react-native-vector-icons/AntDesign';
 
 import {dummyData} from '../api/dummyData';
 import ProductItem from '../components/HorizontalList/ProductItem';
+import OverlayModal from '../components/OverlayModal';
+import SortBy from '../components/SortBy';
 
 export default function ProductsScreen() {
-  const {params: {title} = {title: 'Products'}} = useRoute();
   const navigation = useNavigation();
 
+  // Set header title
+  const {params: {title} = {title: 'Products'}} = useRoute();
   navigation.setOptions({title});
+
+  // UI state
+  const [sortModalOpen, setSortModalOpen] = useState(true);
 
   return (
     <View style={styles.container}>
@@ -20,7 +26,9 @@ export default function ProductsScreen() {
       <View style={styles.header}>
         <Text style={styles.text}>Found (12) Products</Text>
         <View style={styles.actions}>
-          <TouchableOpacity style={styles.action}>
+          <TouchableOpacity
+            style={styles.action}
+            onPress={() => setSortModalOpen(true)}>
             <Icon name="sort-amount-up-alt" size={25} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.action}>
@@ -45,6 +53,10 @@ export default function ProductsScreen() {
         numColumns={2}
         columnWrapperStyle={styles.columnWrapperStyle}
       />
+
+      <OverlayModal visible={sortModalOpen}>
+        <SortBy onClose={() => setSortModalOpen(false)} />
+      </OverlayModal>
     </View>
   );
 }
