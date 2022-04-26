@@ -70,7 +70,9 @@ export default function HomeScreenListHeader() {
             image={item.image}
           />
         )}
-        onSeeAll={() => navigation.navigate('ProductsScreen')}
+        onSeeAll={() =>
+          navigation.navigate('ProductsScreen', {title: 'Featured Products'})
+        }
       />
 
       {/* best sellers */}

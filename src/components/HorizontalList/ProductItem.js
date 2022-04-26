@@ -1,13 +1,20 @@
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
 import {colors} from '../../config/colors';
 
 const currency = '$';
-export default function ProductItem({title, price, image, style, imageStyle}) {
+export default function ProductItem({
+  title,
+  price,
+  image,
+  style,
+  imageStyle,
+  onPress,
+}) {
   return (
     <View style={[styles.container, style]}>
-      <TouchableOpacity style={styles.imgContainer}>
+      <TouchableOpacity style={styles.imgContainer} onPress={onPress}>
         <Image source={image} style={[styles.image, imageStyle]} />
       </TouchableOpacity>
       <View style={styles.content}>
