@@ -8,8 +8,9 @@ import Feather from 'react-native-vector-icons/Feather';
 import ServicesList from '../components/AccountScreen/ServicesList';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../config/colors';
-
-export default function AccountScreen(params) {
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+export default function AccountScreen({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.profileLink}>
@@ -17,7 +18,7 @@ export default function AccountScreen(params) {
           <Image
             style={styles.image}
             source={{
-              uri: 'https://reactnative.dev/img/tiny_logo.png',
+              uri: 'https://static-01.daraz.pk/p/be08ae6469685f81a1de7d139621762f.jpg',
             }}
           />
         </View>
@@ -27,7 +28,9 @@ export default function AccountScreen(params) {
         <AccounItem
           icon={<AntDesign name="hearto" size={25} color="#000" />}
           title={'Wishlist'}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('WishListScreen');
+          }}
         />
         <AccounItem
           icon={<AntDesign name="staro" size={25} color="#000" />}
@@ -42,7 +45,9 @@ export default function AccountScreen(params) {
         <AccounItem
           icon={<Foundation name="ticket" size={25} color="#000" />}
           title={'Coupons'}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('VoucherScreen');
+          }}
         />
       </View>
 
@@ -95,25 +100,31 @@ export default function AccountScreen(params) {
       </View>
       <View style={styles.linksContainerServices}>
         <ServicesList
-          icon={<Ionicons name="wallet-outline" size={25} color="#fff" />}
+          icon={<Feather name="headphones" size={25} color="#fff" />}
           title={'Help Center'}
           onPress={() => {}}
           backgroundColor="rgb(107,200,97)"
         />
         <ServicesList
-          icon={<Feather name="box" size={25} color="#fff" />}
+          icon={
+            <MaterialCommunityIcons
+              name="message-processing-outline"
+              size={25}
+              color="#fff"
+            />
+          }
           title={'Question & Answer'}
           onPress={() => {}}
           backgroundColor="rgb(246,160,159)"
         />
         <ServicesList
-          icon={<Feather name="truck" size={25} color="#fff" />}
+          icon={<EvilIcons name="location" size={25} color="#fff" />}
           title={'Shipping Address'}
           onPress={() => {}}
           backgroundColor="rgb(150,173,235)"
         />
         <ServicesList
-          icon={<Feather name="box" size={25} color="#fff" />}
+          icon={<Foundation name="ticket" size={25} color="#000" />}
           title={'Coupons Center'}
           onPress={() => {}}
           backgroundColor="rgb(186,171,101)"
@@ -129,6 +140,8 @@ const styles = StyleSheet.create({
   userImages: {
     height: 70,
     width: 70,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 35,
     backgroundColor: 'gray',
   },
@@ -171,6 +184,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
     height: 70,
     width: 70,
+    justifyContent: 'center',
     borderRadius: 35,
   },
   profileLink: {
