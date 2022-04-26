@@ -1,5 +1,5 @@
-import {DrawerActions, useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AdIcon from 'react-native-vector-icons/AntDesign';
@@ -7,7 +7,11 @@ import AdIcon from 'react-native-vector-icons/AntDesign';
 import {colors} from '../../config/colors';
 import SearchBox from '../SearchBox';
 
-export default function DrawerHeader({title, actionRight}) {
+export default function DrawerHeader({
+  title,
+  actionRight,
+  actionRightShown = true,
+}) {
   const navigation = useNavigation();
   const isPrevious = navigation.canGoBack();
 
@@ -30,6 +34,21 @@ export default function DrawerHeader({title, actionRight}) {
     );
   };
 
+  const renderActionRight = () => {
+    if (!actionRightShown) {
+      return null;
+    }
+    if (actionRight) {
+      return actionRight;
+    }
+
+    return (
+      <TouchableOpacity>
+        <Icon name="md-cart-outline" size={30} color={colors.BLACK} />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       {isPrevious ? (
@@ -42,9 +61,7 @@ export default function DrawerHeader({title, actionRight}) {
         </TouchableOpacity>
       )}
       <View style={styles.logoContainer}>{renderContent()}</View>
-      <TouchableOpacity>
-        <Icon name="md-cart-outline" size={30} color={colors.BLACK} />
-      </TouchableOpacity>
+      {renderActionRight()}
     </View>
   );
 }
