@@ -1,27 +1,29 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import {colors} from '../config/colors';
 import Counter from './Counter';
-import QuantityCounter from './QuantityCounter';
 
-export default function CartItem() {
+export default function CartItem({onPress}) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image
         style={styles.image}
         source={require('../assets/products/product_1.jpg')}
       />
       <View style={styles.content}>
-        <Text style={styles.productTitle}>Men Shirt</Text>
-        <Text>Medium, Blue</Text>
+        <Text style={styles.productTitle} numberOfLines={1}>
+          Men Shirt
+        </Text>
+        <Text numberOfLines={1}>Medium, Blue</Text>
         <Text style={styles.price}>$32</Text>
         <Counter value={1} />
       </View>
       <TouchableOpacity style={styles.action}>
         <Icon name="trash-can-outline" size={35} />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 }
 
