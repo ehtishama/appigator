@@ -43,7 +43,7 @@ export default function DrawerHeader({
     }
 
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('CartScreen')}>
         <Icon name="md-cart-outline" size={30} color={colors.BLACK} />
       </TouchableOpacity>
     );
