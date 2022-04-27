@@ -11,6 +11,7 @@ import ProductItem from '../../components/HorizontalList/ProductItem';
 import QuantityCounter from '../../components/QuantityCounter';
 import {colors} from '../../config/colors';
 import {defaultStyles} from '../../styles';
+import ProductProperty from '../../components/ProductProperty';
 
 export default function ProductDetailsScreen() {
   const navigation = useNavigation();
@@ -43,7 +44,7 @@ export default function ProductDetailsScreen() {
           </Badge>
         </View>
 
-        {/* title section */}
+        {/* title and price section */}
         <View style={styles.header}>
           <Text style={styles.title}>{product.title}</Text>
           <View style={styles.priceContainer}>
@@ -53,6 +54,15 @@ export default function ProductDetailsScreen() {
             </Text>
           </View>
         </View>
+
+        {/* selectable product properties */}
+        {dummyData.productProperties.map(property => (
+          <ProductProperty
+            key={property.title}
+            title={property.title}
+            possibleValues={property.values}
+          />
+        ))}
 
         {/* quantity */}
         <QuantityCounter

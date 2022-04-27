@@ -279,4 +279,9 @@ export const dummyData = {
       ],
     },
   ],
+
+  productProperties: [
+    {title: 'Size', values: ['S', 'M', 'L', 'XL']},
+    {title: 'Color', values: ['Red', 'White', 'Blue', 'Green']},
+  ],
 };
