@@ -13,6 +13,7 @@ import {colors} from '../../config/colors';
 import {defaultStyles} from '../../styles';
 import ProductProperty from '../../components/ProductProperty';
 import CartConfirmationPopup from '../../components/CartConfirmationPopup';
+import BottomBarButton from '../../components/BottomBarButton';
 
 export default function ProductDetailsScreen() {
   const navigation = useNavigation();
@@ -22,7 +23,7 @@ export default function ProductDetailsScreen() {
 
   // UI state
   const [productQuantity, setProductQuantity] = useState(1);
-  const [cartPopPupVisible, setCartPopupVisible] = useState(true);
+  const [cartPopPupVisible, setCartPopupVisible] = useState(false);
 
   const handleCart = () => {
     setCartPopupVisible(!cartPopPupVisible);
@@ -135,15 +136,13 @@ export default function ProductDetailsScreen() {
           />
         </View>
       </ScrollView>
+
       {/* Add to cart */}
-      <View style={styles.cartContainer}>
-        <Text style={styles.price}>$27.00</Text>
-        <TouchableOpacity style={styles.addToCartBtn} onPress={handleCart}>
-          <Text style={[defaultStyles.textLight, defaultStyles.bold]}>
-            Add To Cart
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <BottomBarButton
+        title={'Add To Cart'}
+        subTitle={`$${product.price}`}
+        onPress={handleCart}
+      />
 
       {/* overlay modal */}
       <CartConfirmationPopup
@@ -231,21 +230,6 @@ const styles = StyleSheet.create({
   },
   relatedProductsContainer: {
     marginVertical: 20,
-  },
-  cartContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderTopWidth: 1,
-    borderColor: colors.LIGHT,
-  },
-  addToCartBtn: {
-    backgroundColor: colors.LOGO_COLOR,
-    paddingHorizontal: 26,
-    paddingVertical: 12,
-    borderRadius: 20,
   },
   description: {
     paddingHorizontal: 16,
