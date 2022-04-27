@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
-import {ScrollView, TextInput} from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 import {Badge} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/AntDesign';
 
@@ -12,6 +12,7 @@ import QuantityCounter from '../../components/QuantityCounter';
 import {colors} from '../../config/colors';
 import {defaultStyles} from '../../styles';
 import ProductProperty from '../../components/ProductProperty';
+import CartConfirmationPopup from '../../components/CartConfirmationPopup';
 
 export default function ProductDetailsScreen() {
   const navigation = useNavigation();
@@ -21,6 +22,15 @@ export default function ProductDetailsScreen() {
 
   // UI state
   const [productQuantity, setProductQuantity] = useState(1);
+  const [cartPopPupVisible, setCartPopupVisible] = useState(true);
+
+  const handleCart = () => {
+    setCartPopupVisible(!cartPopPupVisible);
+  };
+
+  const handleCheckout = () => {};
+
+  const handleShopping = () => {};
 
   return (
     <>
@@ -128,12 +138,22 @@ export default function ProductDetailsScreen() {
       {/* Add to cart */}
       <View style={styles.cartContainer}>
         <Text style={styles.price}>$27.00</Text>
-        <TouchableOpacity style={styles.addToCartBtn}>
+        <TouchableOpacity style={styles.addToCartBtn} onPress={handleCart}>
           <Text style={[defaultStyles.textLight, defaultStyles.bold]}>
             Add To Cart
           </Text>
         </TouchableOpacity>
       </View>
+
+      {/* overlay modal */}
+      <CartConfirmationPopup
+        visible={cartPopPupVisible}
+        product={product}
+        quantity={productQuantity}
+        onClose={() => setCartPopupVisible(!cartPopPupVisible)}
+        onCheckout={handleCheckout}
+        onContinueShopping={handleShopping}
+      />
     </>
   );
 }
