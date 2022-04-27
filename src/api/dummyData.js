@@ -7,57 +7,57 @@ import {gradient} from '../config/colors';
 export const dummyData = {
   products: [
     {
-      title: 'Product 1',
+      title: 'White Smart Watch',
       price: '39.00',
       image: require('../assets/products/product_1.jpg'),
     },
     {
-      title: 'Product 2',
+      title: 'Water Bottle',
       price: '7.00',
       image: require('../assets/products/product_2.jpg'),
     },
     {
-      title: 'Product 3',
+      title: 'Sterio Headphones',
       price: '3.00',
       image: require('../assets/products/product_3.jpg'),
     },
     {
-      title: 'Product 4',
+      title: 'Hoodie',
       price: '227.00',
       image: require('../assets/products/product_4.jpg'),
     },
     {
-      title: 'Product 5',
+      title: 'Jacket',
       price: '292.00',
       image: require('../assets/products/product_5.jpg'),
     },
     {
-      title: 'Product 6',
+      title: 'Coat',
       price: '129.00',
       image: require('../assets/products/product_6.jpg'),
     },
     {
-      title: 'Product 7',
+      title: 'Sneakers',
       price: '290.00',
       image: require('../assets/products/product_7.jpg'),
     },
     {
-      title: 'Product 8',
+      title: 'T-Shirt',
       price: '120.00',
       image: require('../assets/products/product_8.jpg'),
     },
     {
-      title: 'Product 9',
+      title: 'Upper',
       price: '291.00',
       image: require('../assets/products/product_9.jpg'),
     },
     {
-      title: 'Product 10',
+      title: 'Sunglasses',
       price: '91.00',
       image: require('../assets/products/product_10.jpg'),
     },
     {
-      title: 'Product 11',
+      title: 'Shirt',
       price: '21.00',
       image: require('../assets/products/product_11.jpg'),
     },
