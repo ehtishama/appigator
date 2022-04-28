@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 import React from 'react';
 import {colors} from '../config/colors';
 
@@ -19,7 +20,7 @@ export default function Counter({value = 1, onChange = f => f}) {
   return (
     <View style={styles.quantityContainer}>
       <TouchableOpacity style={styles.action} onPress={handleDecrement}>
-        <Text>-</Text>
+        <Icon name="minus" size={15} />
       </TouchableOpacity>
       <TextInput
         placeholder="quantity"
@@ -27,7 +28,7 @@ export default function Counter({value = 1, onChange = f => f}) {
         style={styles.quantityInput}
       />
       <TouchableOpacity style={styles.action} onPress={handleIncrement}>
-        <Text>+</Text>
+        <Icon name="plus" size={15} />
       </TouchableOpacity>
     </View>
   );

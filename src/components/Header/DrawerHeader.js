@@ -3,6 +3,7 @@ import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AdIcon from 'react-native-vector-icons/AntDesign';
+import EnIcon from 'react-native-vector-icons/Entypo';
 
 import {colors} from '../../config/colors';
 import SearchBox from '../SearchBox';
@@ -52,8 +53,8 @@ export default function DrawerHeader({
   return (
     <View style={styles.container}>
       {isPrevious ? (
-        <TouchableOpacity onPress={navigation.goBack}>
-          <AdIcon name="left" size={25} color={colors.BLACK} />
+        <TouchableOpacity onPress={navigation.goBack} style={{padding: 4}}>
+          <EnIcon name="chevron-thin-left" size={25} color={colors.BLACK} />
         </TouchableOpacity>
       ) : (
         <TouchableOpacity onPress={openDrawer}>

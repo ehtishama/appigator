@@ -10,6 +10,7 @@ export default function PaymentMehodItem({icon, text, onPress, selected}) {
         <RadioButton
           color={colors.LOGO_COLOR}
           status={selected ? 'checked' : 'unchecked'}
+          onPress={onPress}
         />
         {icon}
         <Text style={styles.text}>{text}</Text>

@@ -39,7 +39,11 @@ export default function CartScreen() {
           </View>
         }
       />
-      <BottomBarButton title={'Check out'} subTitle={'$ 230.00'} />
+      <BottomBarButton
+        title={'Check out'}
+        subTitle={'$ 230.00'}
+        onPress={() => navigation.navigate('OrderConfirmationScreen')}
+      />
     </View>
   );
 }

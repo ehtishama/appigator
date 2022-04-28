@@ -9,6 +9,7 @@ import VoucherScreen from '../screens/VoucherScreen';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 import CartScreen from '../screens/CartScreen';
+import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -73,6 +74,17 @@ export default function StackNavigator() {
         component={CartScreen}
         options={{
           title: 'Cart',
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
+          ),
+        }}
+      />
+
+      <Stack.Screen
+        name="OrderConfirmationScreen"
+        component={OrderConfirmationScreen}
+        options={{
+          title: 'Order Confirmation',
           header: ({options: {title}}) => (
             <DrawerHeader title={title} actionRightShown={false} />
           ),
