@@ -5,6 +5,8 @@ import {colors} from '../config/colors';
 import {TextInput} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import Button from '../components/Button';
+import * as Yup from 'yup';
+import FormFieldError from '../components/FormFieldError';
 
 const initialValues = {
   fullName: '',
@@ -12,6 +14,23 @@ const initialValues = {
   password: '',
   repeatPassword: '',
 };
+
+const SignupSchema = Yup.object().shape({
+  fullName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Name is required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Email address is required'),
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Password is required'),
+  repeatPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords do not match')
+    .required('Repeat password is required'),
+});
 
 export default function SignupScreen() {
   const handleSubmit = values => {
@@ -22,8 +41,9 @@ export default function SignupScreen() {
       <Text style={styles.title}>Signup</Text>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
+        onSubmit={values => console.log(values)}
+        validationSchema={SignupSchema}>
+        {({handleChange, handleBlur, handleSubmit, values, errors}) => (
           <View style={styles.form}>
             <TextInput
               label={'Name *'}
@@ -36,7 +56,10 @@ export default function SignupScreen() {
               style={styles.field}
               mode="outlined"
               activeOutlineColor={colors.LOGO_COLOR}
+              error={errors.fullName}
             />
+            {errors.fullName && <FormFieldError text={errors.fullName} />}
+
             <TextInput
               label={'Email *'}
               value={values.email}
@@ -48,31 +71,41 @@ export default function SignupScreen() {
               style={styles.field}
               mode="outlined"
               activeOutlineColor={colors.LOGO_COLOR}
+              error={errors.email}
             />
+            {errors.email && <FormFieldError text={errors.email} />}
             <TextInput
               label={'Password *'}
               value={values.password}
-              placeholder={'password'}
+              placeholder={'*********'}
               keyboardType="ascii-capable"
               onBlur={handleBlur('password')}
               onChangeText={handleChange('password')}
               autoCapitalize={'none'}
+              secureTextEntry
               style={styles.field}
               mode="outlined"
               activeOutlineColor={colors.LOGO_COLOR}
+              error={errors.password}
             />
+            {errors.password && <FormFieldError text={errors.password} />}
             <TextInput
               label={'Repeat Password *'}
               value={values.repeatPassword}
-              placeholder={'passwrod'}
+              placeholder={'*********'}
               keyboardType="ascii-capable"
               onBlur={handleBlur('repeatPassword')}
               onChangeText={handleChange('repeatPassword')}
               autoCapitalize={'none'}
               style={styles.field}
               mode="outlined"
+              secureTextEntry
               activeOutlineColor={colors.LOGO_COLOR}
+              error={errors.repeatPassword}
             />
+            {errors.repeatPassword && (
+              <FormFieldError text={errors.repeatPassword} />
+            )}
             <Button
               block
               title={'Sign Up'}
