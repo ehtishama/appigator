@@ -6,8 +6,11 @@ import DrawerNavigator from './DrawerNavigator';
 import DrawerHeader from '../components/Header/DrawerHeader';
 import WishlistScreen from '../screens/WishListScreen';
 import VoucherScreen from '../screens/VoucherScreen';
+import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 import AddressScreen from '../screens/AddressScreen';
+import CartScreen from '../screens/CartScreen';
+import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +28,14 @@ export default function StackNavigator() {
         options={{
           title: 'Products',
           header: ({options: {title}}) => <DrawerHeader title={title} />,
+        }}
+      />
+      <Stack.Screen
+        name="ProductDetailsScreen"
+        component={ProductDetailsScreen}
+        options={{
+          title: 'Product Details',
+          header: DrawerHeader,
         }}
       />
       <Stack.Screen
@@ -58,11 +69,23 @@ export default function StackNavigator() {
           ),
         }}
       />
+
       <Stack.Screen
-        name="AddressScreen"
-        component={AddressScreen}
+        name="CartScreen"
+        component={CartScreen}
         options={{
-          title: 'Address',
+          title: 'Cart',
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
+          ),
+        }}
+      />
+
+      <Stack.Screen
+        name="OrderConfirmationScreen"
+        component={OrderConfirmationScreen}
+        options={{
+          title: 'Order Confirmation',
           header: ({options: {title}}) => (
             <DrawerHeader title={title} actionRightShown={false} />
           ),

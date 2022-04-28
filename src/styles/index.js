@@ -4,6 +4,12 @@ export const defaultStyles = StyleSheet.create({
   flex1: {
     flex: 1,
   },
+  flexRow: {
+    flexDirection: 'row',
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
   textLight: {
     color: colors.WHITE,
   },
