@@ -1,6 +1,13 @@
 import React from 'react';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Text,
+  StatusBar,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AdIcon from 'react-native-vector-icons/AntDesign';
 

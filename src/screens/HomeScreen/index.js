@@ -9,13 +9,11 @@ import HomeScreenListFooter from './HomeScreenListFooter';
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView>
-      <ProductsList
-        products={dummyData.products}
-        ListHeaderComponent={HomeScreenListHeader}
-        ListFooterComponent={HomeScreenListFooter}
-      />
-    </SafeAreaView>
+    <ProductsList
+      products={dummyData.products}
+      ListHeaderComponent={HomeScreenListHeader}
+      ListFooterComponent={HomeScreenListFooter}
+    />
   );
 }
 

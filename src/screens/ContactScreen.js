@@ -1,5 +1,11 @@
 import React from 'react';
-import {Linking, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import {
+  Linking,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -9,6 +15,7 @@ export default function ContactScreen(params) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
+        <StatusBar backgroundColor="#ffff" />
         <CustomerCare
           icon={<Ionicons name="call-outline" size={25} color="#000" />}
           title={'Call Us'}
@@ -34,7 +41,7 @@ export default function ContactScreen(params) {
           }
           onPress={() => {
             // eslint-disable-next-line no-undef
-            Linking.openURL('mailto:support@example.com');
+            Linking.openURL('mailto:moin.abid@unitedsol.net');
           }}
           btnText={'Email Us'}
         />

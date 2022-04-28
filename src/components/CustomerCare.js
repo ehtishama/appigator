@@ -1,6 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {colors} from '../config/colors';
 
 export default function CustomerCare({icon, title, Msg, onPress, btnText}) {
   return (
@@ -21,28 +23,28 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: 30,
-    backgroundColor: 'rgb(247,247,247)',
+    marginTop: 10,
+    backgroundColor: colors.GRAY_COLOR,
     height: 200,
     elevation: 2,
     marginHorizontal: 16,
-    paddingHorizontal: 10,
+    marginBottom: 15,
   },
   title: {
     fontWeight: 'bold',
     fontSize: 18,
+    color: colors.BLACK,
     textAlign: 'center',
     marginHorizontal: 5,
   },
   msg: {
-    fontWeight: 'bold',
     fontSize: 16,
     marginTop: 20,
     textAlign: 'center',
     width: '79%',
   },
   btn: {
-    borderColor: 'red',
+    borderColor: colors.RED_COLOR,
     borderWidth: 1,
     marginTop: 20,
     height: 45,
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: 'red',
+    color: colors.RED_COLOR,
     alignItems: 'center',
     textAlign: 'center',
   },
