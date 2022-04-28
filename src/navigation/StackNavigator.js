@@ -10,6 +10,7 @@ import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 import CartScreen from '../screens/CartScreen';
 import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
+import SignupScreen from '../screens/SignupScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -88,6 +89,15 @@ export default function StackNavigator() {
           header: ({options: {title}}) => (
             <DrawerHeader title={title} actionRightShown={false} />
           ),
+        }}
+      />
+
+      <Stack.Screen
+        name="SignupScreen"
+        component={SignupScreen}
+        options={{
+          title: 'Signup',
+          header: () => <DrawerHeader logo actionRightShown={false} />,
         }}
       />
     </Stack.Navigator>
