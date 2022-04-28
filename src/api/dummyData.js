@@ -284,4 +284,16 @@ export const dummyData = {
     {title: 'Size', values: ['S', 'M', 'L', 'XL']},
     {title: 'Color', values: ['Red', 'White', 'Blue', 'Green']},
   ],
+  userInfo: {
+    fullName: 'Kashif Mehmood',
+    address: {
+      line1: 'Plot# 349 to 352, Street# 1, i-9/3',
+      line2: 'United Sol, Basement',
+      city: 'Islamabad',
+      state: 'Punjab',
+      country: 'Pakistan',
+      postalCode: '44000',
+    },
+    phone: '+92 313 9189995',
+  },
 };
