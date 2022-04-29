@@ -28,10 +28,7 @@ export default function AccountScreen() {
             }}
           />
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('AddressScreen');
-          }}>
+        <TouchableOpacity onPress={() => navigation.navigate('AuthNavigator')}>
           <Text style={styles.userName}>Kashif Mehmood</Text>
         </TouchableOpacity>
       </View>

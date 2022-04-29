@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
@@ -22,7 +22,7 @@ export default function LoginScreen() {
 
   return (
     <ScrollView style={formStyles.container}>
-      <Text style={formStyles.title}>Signup</Text>
+      <Text style={formStyles.title}>Login</Text>
       <Formik
         initialValues={initialValues}
         onSubmit={values => console.log(values)}
