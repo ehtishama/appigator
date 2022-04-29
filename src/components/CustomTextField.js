@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function CustomTextField({title}) {
   return (
@@ -14,7 +13,7 @@ export default function CustomTextField({title}) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    paddingHorizontal: 16,
+    paddingHorizontal: 18,
     padding: 5,
   },
   title: {
@@ -25,5 +24,7 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: 'rgb(247,247,247)',
     height: 50,
+    elevation: 2,
+    marginTop: 10,
   },
 });

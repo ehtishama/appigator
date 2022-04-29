@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -14,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 export default function AccountScreen() {
   const navigation = useNavigation();
-  navigation.setOptions({title: 'Account Screen'});
+  // navigation.setOptions({title: 'Account Screen'});
 
   return (
     <View style={styles.container}>
@@ -29,7 +30,7 @@ export default function AccountScreen() {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('UpdateProfileScreen');
+            navigation.navigate('AddressScreen');
           }}>
           <Text style={styles.userName}>Kashif Mehmood</Text>
         </TouchableOpacity>
@@ -62,7 +63,9 @@ export default function AccountScreen() {
       </View>
 
       <View style={styles.linkOrder}>
-        <Text style={styles.textOrder}>Orders</Text>
+        <Text style={{color: colors.BLACK, fontSize: 17, fontWeight: 'bold'}}>
+          Orders
+        </Text>
         <View style={styles.viewAll}>
           <Text style={styles.textOrder}>View All</Text>
           <AntDesign name="right" size={20} color={colors.LIGHT} />
@@ -183,7 +186,6 @@ const styles = StyleSheet.create({
   },
   textOrder: {
     fontSize: 15,
-    color: 'black',
     fontWeight: 'bold',
   },
   textDipute: {

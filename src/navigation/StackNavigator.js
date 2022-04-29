@@ -8,6 +8,7 @@ import WishlistScreen from '../screens/WishListScreen';
 import VoucherScreen from '../screens/VoucherScreen';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import UpdateProfileScreen from '../screens/UpdateProfileScreen';
+import AddressScreen from '../screens/AddressScreen';
 import CartScreen from '../screens/CartScreen';
 import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
 import SignupScreen from '../screens/SignupScreen';

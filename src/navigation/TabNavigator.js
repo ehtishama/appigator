@@ -8,7 +8,7 @@ import CategoriesScreen from '../screens/CategoriesScreen';
 import AccountScreen from '../screens/AccountScreen';
 import ContactScreen from '../screens/ContactScreen';
 import DrawerHeader from '../components/Header/DrawerHeader';
-import StackNavigator from './StackNavigator';
+// import StackNavigator from './StackNavigator';
 import HeaderAction from '../components/HeaderAction';
 
 const Tab = createBottomTabNavigator();
@@ -38,10 +38,11 @@ export default function BottomTabNavigator() {
         component={AccountScreen}
         options={{
           tabBarIcon: props => <MDIcon name="account" {...props} />,
+
           header: props => (
             <DrawerHeader
               {...props}
-              title={'Account'}
+              title="Account"
               actionRight={
                 <HeaderAction icon={<Icon name="setting" size={30} />} />
               }

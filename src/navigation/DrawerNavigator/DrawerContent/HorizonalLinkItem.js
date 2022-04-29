@@ -9,7 +9,11 @@ export default function HorizonalLinkItem({icon, title}) {
       <TouchableOpacity>
         <View style={styles.hrLink}>
           {icon}
-          <Text style={defaultStyles.textLight}>{title}</Text>
+          <Text
+            style={[defaultStyles.textLight, styles.title]}
+            numberOfLines={1}>
+            {title}
+          </Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -24,5 +28,9 @@ const styles = StyleSheet.create({
   },
   hrLink: {
     alignItems: 'center',
+  },
+  title: {
+    fontSize: 13,
+    marginTop: 4,
   },
 });

@@ -16,6 +16,8 @@ export const colors = {
   DARK_400: '#212121',
   BORDER_ON_DARK: '#535353',
   LIGHT_BUTTON: '#8D8D8D',
+  GRAY_COLOR: 'rgb(247,247,247)',
+  RED_COLOR: 'red',
 };
 
 export const gradient = {
