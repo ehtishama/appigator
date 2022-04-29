@@ -7,6 +7,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import Button from '../components/Button';
 import * as Yup from 'yup';
 import FormFieldError from '../components/FormFieldError';
+import {useNavigation} from '@react-navigation/native';
 
 const initialValues = {
   fullName: '',
@@ -33,6 +34,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 export default function SignupScreen() {
+  const navigation = useNavigation();
+
   const handleSubmit = values => {
     console.log(values);
   };
@@ -116,7 +119,12 @@ export default function SignupScreen() {
         )}
       </Formik>
       <Text style={styles.bottomText}>
-        Already have an account? <Text style={styles.link}>Sign in</Text>
+        Already have an account?{' '}
+        <Text
+          style={styles.link}
+          onPress={() => navigation.navigate('LoginScreen')}>
+          Sign in
+        </Text>
       </Text>
     </ScrollView>
   );
