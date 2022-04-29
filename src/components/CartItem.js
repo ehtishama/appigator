@@ -24,7 +24,7 @@ export default function CartItem({onPress, backgroundColor}) {
           <Counter value={1} />
         </View>
         <TouchableOpacity style={styles.action}>
-          <Icon name="trash-can-outline" size={35} />
+          <Icon name="trash-can-outline" size={25} />
         </TouchableOpacity>
       </TouchableOpacity>
       {/* <View>

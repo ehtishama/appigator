@@ -9,7 +9,6 @@ import {
   StatusBar,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import AdIcon from 'react-native-vector-icons/AntDesign';
 import EnIcon from 'react-native-vector-icons/Entypo';
 
 import {colors} from '../../config/colors';
@@ -20,6 +19,7 @@ export default function DrawerHeader({
   title,
   actionRight,
   actionRightShown = true,
+  logo = false,
 }) {
   const navigation = useNavigation();
   const isPrevious = navigation.canGoBack();
@@ -32,7 +32,7 @@ export default function DrawerHeader({
     if (title) {
       return <Text style={styles.title}>{title}</Text>;
     }
-    if (isPrevious) {
+    if (isPrevious && !logo) {
       return <SearchBox iconOnRight inputStyle={styles.inputStyle} />;
     }
     return (
@@ -45,7 +45,12 @@ export default function DrawerHeader({
 
   const renderActionRight = () => {
     if (!actionRightShown) {
-      return null;
+      // return a transparent icon to keep things aligned
+      return (
+        <TouchableOpacity>
+          <Icon name="md-cart-outline" size={30} color={'transparent'} />
+        </TouchableOpacity>
+      );
     }
     if (actionRight) {
       return actionRight;

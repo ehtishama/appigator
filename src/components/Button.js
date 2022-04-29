@@ -3,10 +3,24 @@ import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 import {colors} from '../config/colors';
 
-export default function Button({title, variant = 'primary', onPress}) {
+export default function Button({
+  title,
+  variant = 'primary',
+  block,
+  edgesRound = true,
+  onPress,
+}) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text style={[styles.title, styles[variant]]}>{title}</Text>
+      <Text
+        style={[
+          styles.title,
+          styles[variant],
+          block && styles.block,
+          edgesRound && styles.edgesRound,
+        ]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -18,11 +32,12 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingHorizontal: 26,
-    paddingVertical: 12,
-    borderRadius: 50,
+    paddingVertical: 16,
     marginTop: 8,
     fontWeight: 'bold',
+    borderRadius: 4,
   },
+  edgesRound: {borderRadius: 50},
   primary: {
     color: colors.WHITE,
     backgroundColor: colors.LOGO_COLOR,
@@ -30,5 +45,9 @@ const styles = StyleSheet.create({
   outline: {
     borderWidth: 1,
     borderColor: colors.TEXT_LIGHT,
+  },
+  block: {
+    width: '100%',
+    textAlign: 'center',
   },
 });

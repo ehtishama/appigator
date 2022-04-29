@@ -10,8 +10,11 @@ import VerticalLinkItem from './VerticalLinkItem';
 import {dummyData} from '../../../api/dummyData';
 import {defaultStyles} from '../../../styles';
 import {colors} from '../../../config/colors';
+import {useNavigation} from '@react-navigation/native';
 
 export default function DrawerContent() {
+  const navigation = useNavigation();
+
   const hrLinks = [
     {key: 1, title: 'Profile', iconName: 'user'},
     {key: 2, title: 'Address', iconName: 'pushpino'},
@@ -63,7 +66,12 @@ export default function DrawerContent() {
         <FlatList
           data={vrLinks}
           keyExtractor={item => item.key}
-          renderItem={({item}) => <VerticalLinkItem title={item.title} />}
+          renderItem={({item}) => (
+            <VerticalLinkItem
+              title={item.title}
+              onPress={() => navigation.navigate('SignupScreen')}
+            />
+          )}
         />
       </View>
 
