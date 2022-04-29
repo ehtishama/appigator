@@ -3,11 +3,13 @@ import React from 'react';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {TextInput} from 'react-native-paper';
+
 import FormFieldError from '../components/FormFieldError';
 import {colors} from '../config/colors';
 import Button from '../components/Button';
 import {useNavigation} from '@react-navigation/native';
 import {formStyles} from '../styles';
+import {usersApi} from '../api/users';
 
 const initialValues = {email: '', password: ''};
 const LoginSchema = Yup.object().shape({
@@ -20,13 +22,34 @@ const LoginSchema = Yup.object().shape({
 export default function LoginScreen() {
   const navigation = useNavigation();
 
+  const handleSubmit = async values => {
+    console.log('submitting values: ', values);
+    const {email, password} = values;
+
+    try {
+      const {data: accessToken} = await usersApi.getCustomerToken(
+        email,
+        password,
+      );
+      console.log('Access Token fetched: ', accessToken);
+      console.log('Fetching profile');
+
+      const {data} = await usersApi.getCustomerProfile(accessToken);
+      console.log('Customer Profile: ', data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ScrollView style={formStyles.container}>
       <Text style={formStyles.title}>Login</Text>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}
-        validationSchema={LoginSchema}>
+        onSubmit={handleSubmit}
+        validationSchema={LoginSchema}
+        validateOnBlur={false}
+        validateOnChange={false}>
         {({handleChange, handleBlur, handleSubmit, values, errors}) => (
           <View style={formStyles.form}>
             <TextInput
@@ -61,7 +84,7 @@ export default function LoginScreen() {
 
             <Button
               block
-              title={'Sign Up'}
+              title={'Login'}
               edgesRound={false}
               onPress={handleSubmit}
             />
