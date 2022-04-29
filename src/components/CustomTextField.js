@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: 'rgb(247,247,247)',
     height: 50,
-    elevation: 2,
+    elevation: 3,
     marginTop: 10,
   },
 });
