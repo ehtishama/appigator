@@ -40,7 +40,7 @@ export default function CartScreen() {
         }
       />
       <BottomBarButton
-        title={'Check out'}
+        title={'Checkout'}
         subTitle={'$ 230.00'}
         onPress={() => navigation.navigate('OrderConfirmationScreen')}
       />

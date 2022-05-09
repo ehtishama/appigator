@@ -16,7 +16,10 @@ import {colors} from '../config/colors';
 import BottomBarButton from '../components/BottomBarButton';
 import OrderSummary from '../components/OrderSummary';
 import Screen from '../components/Screen';
+import {useNavigation} from '@react-navigation/native';
 export default function OrderConfirmationScreen() {
+  const navigation = useNavigation();
+
   return (
     <Screen>
       <ScrollView style={styles.container}>
@@ -42,7 +45,11 @@ export default function OrderConfirmationScreen() {
           </Text>
         </View>
       </ScrollView>
-      <BottomBarButton title={'Pay Now'} subTitle={'$32.00'} />
+      <BottomBarButton
+        title={'Pay Now'}
+        subTitle={'$32.00'}
+        onPress={() => navigation.navigate('OrderSuccessScreen')}
+      />
     </Screen>
   );
 }

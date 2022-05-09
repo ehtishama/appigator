@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import * as Yup from 'yup';
@@ -57,12 +57,22 @@ export default function SignupScreen() {
     };
 
     try {
+      setLoading(true);
       const {data} = await usersApi.createCustomer(newCustomer);
       console.log('Response data: ', data);
+
+      // show an alert on success
+      Alert.alert(
+        'Congratulations',
+        'Your account has been created. You can now go back and login.',
+        [{text: 'Login now', onPress: () => navigation.goBack()}],
+      );
     } catch (error) {
       setServerError(
         error?.response?.data?.message || 'An error has occured on the server',
       );
+    } finally {
+      setLoading(false);
     }
   };
   return (

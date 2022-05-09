@@ -11,6 +11,7 @@ import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 import CartScreen from '../screens/CartScreen';
 import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
 import AuthNavigator from './AuthNavigator';
+import OrderSuccessScreen from '../screens/OrderSuccessScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -91,6 +92,15 @@ export default function StackNavigator() {
           ),
         }}
       />
+
+      <Stack.Screen
+        name="OrderSuccessScreen"
+        component={OrderSuccessScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
       <Stack.Screen
         name="AuthNavigator"
         component={AuthNavigator}
