@@ -67,10 +67,7 @@ export default function DrawerContent() {
           data={vrLinks}
           keyExtractor={item => item.key}
           renderItem={({item}) => (
-            <VerticalLinkItem
-              title={item.title}
-              onPress={() => navigation.navigate('SignupScreen')}
-            />
+            <VerticalLinkItem title={item.title} onPress={() => null} />
           )}
         />
       </View>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {ActivityIndicator} from 'react-native-paper';
 
 import {colors} from '../config/colors';
 
@@ -9,9 +10,13 @@ export default function Button({
   block,
   edgesRound = true,
   onPress,
+  loading = false,
 }) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      disabled={loading}>
       <Text
         style={[
           styles.title,
@@ -19,7 +24,8 @@ export default function Button({
           block && styles.block,
           edgesRound && styles.edgesRound,
         ]}>
-        {title}
+        {loading && <ActivityIndicator color={colors.WHITE} />}
+        {!loading && title}
       </Text>
     </TouchableOpacity>
   );
@@ -36,6 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontWeight: 'bold',
     borderRadius: 4,
+    alignItems: 'center',
   },
   edgesRound: {borderRadius: 50},
   primary: {

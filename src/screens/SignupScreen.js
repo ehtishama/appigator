@@ -1,25 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {View, Text, StyleSheet} from 'react-native';
-import {colors} from '../config/colors';
 import {TextInput} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
-import Button from '../components/Button';
 import * as Yup from 'yup';
+
+import {colors} from '../config/colors';
+import Button from '../components/Button';
 import FormFieldError from '../components/FormFieldError';
+import {useNavigation} from '@react-navigation/native';
+import {usersApi} from '../api/users';
 
 const initialValues = {
-  fullName: '',
+  firstName: '',
+  lastName: '',
   email: '',
   password: '',
   repeatPassword: '',
 };
 
 const SignupSchema = Yup.object().shape({
-  fullName: Yup.string()
+  firstName: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
-    .required('Name is required'),
+    .required('First Name is required'),
+  lastName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Last Name is required'),
   email: Yup.string()
     .email('Invalid email')
     .required('Email address is required'),
@@ -33,32 +41,70 @@ const SignupSchema = Yup.object().shape({
 });
 
 export default function SignupScreen() {
-  const handleSubmit = values => {
-    console.log(values);
+  const navigation = useNavigation();
+
+  const [serverError, setServerError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async values => {
+    const newCustomer = {
+      customer: {
+        firstname: values.firstName,
+        lastname: values.lastName,
+        email: values.email,
+      },
+      password: values.password,
+    };
+
+    try {
+      const {data} = await usersApi.createCustomer(newCustomer);
+      console.log('Response data: ', data);
+    } catch (error) {
+      setServerError(
+        error?.response?.data?.message || 'An error has occured on the server',
+      );
+    }
   };
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Signup</Text>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}
-        validationSchema={SignupSchema}>
+        onSubmit={handleSubmit}
+        validationSchema={SignupSchema}
+        validateOnBlur={false}
+        validateOnChange={false}>
         {({handleChange, handleBlur, handleSubmit, values, errors}) => (
           <View style={styles.form}>
             <TextInput
-              label={'Name *'}
-              value={values.fullName}
-              placeholder={'Your full name'}
+              label={'First Name *'}
+              value={values.firstName}
+              placeholder={'John'}
               keyboardType="name-phone-pad"
-              onBlur={handleBlur('fullName')}
-              onChangeText={handleChange('fullName')}
+              onBlur={handleBlur('firstName')}
+              onChangeText={handleChange('firstName')}
               autoCapitalize={'words'}
               style={styles.field}
               mode="outlined"
               activeOutlineColor={colors.LOGO_COLOR}
-              error={errors.fullName}
+              error={errors.firstName}
             />
-            {errors.fullName && <FormFieldError text={errors.fullName} />}
+            {errors.firstName && <FormFieldError text={errors.firstName} />}
+
+            <TextInput
+              label={'Last Name *'}
+              value={values.lastName}
+              placeholder={'Doe'}
+              keyboardType="name-phone-pad"
+              onBlur={handleBlur('lastName')}
+              onChangeText={handleChange('lastName')}
+              autoCapitalize={'words'}
+              style={styles.field}
+              mode="outlined"
+              activeOutlineColor={colors.LOGO_COLOR}
+              error={errors.lastName}
+            />
+            {errors.lastName && <FormFieldError text={errors.lastName} />}
 
             <TextInput
               label={'Email *'}
@@ -106,17 +152,24 @@ export default function SignupScreen() {
             {errors.repeatPassword && (
               <FormFieldError text={errors.repeatPassword} />
             )}
+            {!!serverError && <FormFieldError text={serverError} />}
             <Button
               block
               title={'Sign Up'}
               edgesRound={false}
               onPress={handleSubmit}
+              loading={loading}
             />
           </View>
         )}
       </Formik>
       <Text style={styles.bottomText}>
-        Already have an account? <Text style={styles.link}>Sign in</Text>
+        Already have an account?{' '}
+        <Text
+          style={styles.link}
+          onPress={() => navigation.navigate('LoginScreen')}>
+          Sign in
+        </Text>
       </Text>
     </ScrollView>
   );

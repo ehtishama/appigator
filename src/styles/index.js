@@ -1,5 +1,6 @@
 import {colors} from '../config/colors';
 import {StyleSheet} from 'react-native';
+
 export const defaultStyles = StyleSheet.create({
   flex1: {
     flex: 1,
@@ -33,3 +34,5 @@ export const defaultStyles = StyleSheet.create({
     padding: 8,
   },
 });
+
+export {default as formStyles} from './formStyles';
