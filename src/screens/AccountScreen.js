@@ -3,19 +3,24 @@ import React from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Foundation from 'react-native-vector-icons/Foundation';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import {useNavigation} from '@react-navigation/native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useSelector, useDispatch} from 'react-redux';
+
 import AccounItem from '../components/AccountListWish/AccountItem';
 import AccounOrder from '../components/AccountOrder/AccountOrder';
 import Feather from 'react-native-vector-icons/Feather';
 import ServicesList from '../components/AccountScreen/ServicesList';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../config/colors';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {logout} from '../redux/reducers/authReducer';
+
 export default function AccountScreen() {
   const navigation = useNavigation();
-  // navigation.setOptions({title: 'Account Screen'});
+  const {isLoggedIn, user} = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
@@ -28,9 +33,20 @@ export default function AccountScreen() {
             }}
           />
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate('AuthNavigator')}>
-          <Text style={styles.userName}>Kashif Mehmood</Text>
-        </TouchableOpacity>
+        {isLoggedIn ? (
+          <TouchableOpacity>
+            <Text style={styles.userName}>
+              {user.firstname} {user.lastname}
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('AuthNavigator', {screen: 'LoginScreen'})
+            }>
+            <Text style={styles.userName}>Login to Your account</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <View style={styles.linksContainer}>
         <AccounItem
@@ -43,7 +59,9 @@ export default function AccountScreen() {
         <AccounItem
           icon={<AntDesign name="staro" size={25} color="#000" />}
           title={'Favourites'}
-          onPress={() => {}}
+          onPress={() => {
+            dispatch(logout());
+          }}
         />
         <AccounItem
           icon={<AntDesign name="clockcircleo" size={25} color="#000" />}
@@ -206,6 +224,7 @@ const styles = StyleSheet.create({
     marginLeft: '5%',
     fontWeight: 'bold',
     fontSize: 19,
+    textTransform: 'capitalize',
   },
   viewAll: {
     flexDirection: 'row',
