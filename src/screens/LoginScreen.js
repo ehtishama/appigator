@@ -24,10 +24,13 @@ const LoginSchema = Yup.object().shape({
 export default function LoginScreen() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
   const [apiError, setApiError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async values => {
     setApiError(null);
+    setLoading(true);
     try {
       const {email, password} = values;
 
@@ -46,6 +49,8 @@ export default function LoginScreen() {
         error?.response?.data?.message || 'An unexpected error has occurred',
       );
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,6 +102,7 @@ export default function LoginScreen() {
               title={'Login'}
               edgesRound={false}
               onPress={handleSubmit}
+              loading={loading}
             />
           </View>
         )}

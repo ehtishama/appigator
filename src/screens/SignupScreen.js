@@ -42,7 +42,9 @@ const SignupSchema = Yup.object().shape({
 
 export default function SignupScreen() {
   const navigation = useNavigation();
+
   const [serverError, setServerError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async values => {
     const newCustomer = {
@@ -156,6 +158,7 @@ export default function SignupScreen() {
               title={'Sign Up'}
               edgesRound={false}
               onPress={handleSubmit}
+              loading={loading}
             />
           </View>
         )}
