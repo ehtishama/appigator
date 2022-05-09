@@ -12,6 +12,7 @@ import AddressScreen from '../screens/AddressScreen';
 import CartScreen from '../screens/CartScreen';
 import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
 import SignupScreen from '../screens/SignupScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -99,6 +100,24 @@ export default function StackNavigator() {
         options={{
           title: 'Signup',
           header: () => <DrawerHeader logo actionRightShown={false} />,
+        }}
+      />
+      <Stack.Screen
+        name="AddressScreen"
+        component={AddressScreen}
+        options={{
+          title: 'Address',
+          header: () => <DrawerHeader logo actionRightShown={false} />,
+        }}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
+          ),
         }}
       />
     </Stack.Navigator>

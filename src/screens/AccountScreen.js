@@ -30,7 +30,7 @@ export default function AccountScreen() {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('AddressScreen');
+            navigation.navigate('ProfileScreen');
           }}>
           <Text style={styles.userName}>Kashif Mehmood</Text>
         </TouchableOpacity>
