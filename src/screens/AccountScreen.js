@@ -81,10 +81,12 @@ export default function AccountScreen() {
         <Text style={{color: colors.BLACK, fontSize: 17, fontWeight: 'bold'}}>
           Orders
         </Text>
-        <View style={styles.viewAll}>
-          <Text style={styles.textOrder}>View All</Text>
-          <AntDesign name="right" size={20} color={colors.LIGHT} />
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('OrdersScreen')}>
+          <View style={styles.viewAll}>
+            <Text style={styles.textOrder}>View All</Text>
+            <AntDesign name="right" size={20} color={colors.LIGHT} />
+          </View>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.linksContainer}>
