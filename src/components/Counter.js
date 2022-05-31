@@ -9,13 +9,15 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import React from 'react';
 import {colors} from '../config/colors';
 
-export default function Counter({value = 1, onChange = f => f}) {
+export default function Counter({value = 1, min = 1, onChange = f => f}) {
   const handleIncrement = () => {
     onChange(value + 1);
   };
 
   const handleDecrement = () => {
-    onChange(value - 1);
+    if (value > min) {
+      onChange(value - 1);
+    }
   };
   return (
     <View style={styles.quantityContainer}>

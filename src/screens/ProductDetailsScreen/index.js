@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {useNavigation, useRoute} from '@react-navigation/native';
-import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
 import {Badge} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {ScrollView} from 'react-native-gesture-handler';
+import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
 import {dummyData} from '../../api/dummyData';
 import HorizontalList from '../../components/HorizontalList';
@@ -23,10 +23,10 @@ export default function ProductDetailsScreen() {
 
   // UI state
   const [productQuantity, setProductQuantity] = useState(1);
-  const [cartPopPupVisible, setCartPopupVisible] = useState(false);
+  const [cartSuccessPopupVisible, setCartSuccessPopupVisible] = useState(false);
 
   const handleCart = () => {
-    setCartPopupVisible(!cartPopPupVisible);
+    setCartSuccessPopupVisible(!cartSuccessPopupVisible);
   };
 
   const handleCheckout = () => {};
@@ -146,10 +146,10 @@ export default function ProductDetailsScreen() {
 
       {/* overlay modal */}
       <CartConfirmationPopup
-        visible={cartPopPupVisible}
+        visible={cartSuccessPopupVisible}
         product={product}
         quantity={productQuantity}
-        onClose={() => setCartPopupVisible(!cartPopPupVisible)}
+        onClose={() => setCartSuccessPopupVisible(!cartSuccessPopupVisible)}
         onCheckout={handleCheckout}
         onContinueShopping={handleShopping}
       />

@@ -16,7 +16,7 @@ export default function EmptyListPlaceHolder({
       {icon}
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subTitle}>{subTitle}</Text>
-      {/* <Button title={'Back to Home'} edgesRound={false} /> */}
+
       <Button
         mode="outlined"
         color={colors.LOGO_COLOR}
@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 32,
     paddingHorizontal: 16,
+    flex: 1,
+    justifyContent: 'center',
   },
   title: {
     fontSize: 18,

@@ -51,6 +51,15 @@ export const defaultStyles = StyleSheet.create({
   w_100: {
     width: '100%',
   },
+  bg_success: {
+    backgroundColor: colors.SUCCESS,
+  },
+  bg_danger: {
+    backgroundColor: colors.DANGER,
+  },
+  bg_warning: {
+    backgroundColor: colors.WARNING,
+  },
 });
 
 export {default as formStyles} from './formStyles';

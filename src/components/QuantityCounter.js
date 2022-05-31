@@ -1,19 +1,17 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {colors} from '../config/colors';
 import Counter from './Counter';
 
-export default function QuantityCounter({value = 1, onChange = f => f}) {
+export default function QuantityCounter({
+  value = 1,
+  min = 1,
+  onChange = f => f,
+}) {
   return (
     <View style={styles.productOption}>
       <Text style={styles.optionTitle}>Quantity</Text>
-      <Counter {...{value, onChange}} />
+      <Counter {...{value, onChange, min}} />
     </View>
   );
 }

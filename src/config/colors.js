@@ -18,6 +18,9 @@ export const colors = {
   LIGHT_BUTTON: '#8D8D8D',
   GRAY_COLOR: 'rgb(247,247,247)',
   RED_COLOR: 'red',
+  SUCCESS: '#8FC284',
+  DANGER: '#EE5656',
+  WARNING: '#fcc111',
 };
 
 export const gradient = {

@@ -13,7 +13,7 @@ import EmptyListPlaceHolder from '../components/EmptyListPlaceHolder';
 
 export default function CartScreen() {
   const navigation = useNavigation();
-  const data = [...Array(0)];
+  const data = [...Array(10)];
 
   const renderEmptyComponent = (
     <EmptyListPlaceHolder

@@ -1,38 +1,42 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {colors} from '../config/colors';
-import {Badge} from 'react-native-paper';
+import {Badge, TouchableRipple} from 'react-native-paper';
 import {defaultStyles} from '../styles';
 
-export default function OrderItem() {
+export default function OrderItem({onPress}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.orderId}>Order# 1234</Text>
+      <TouchableOpacity onPress={onPress}>
+        <>
+          <Text style={styles.orderId}>Order# 1234</Text>
 
-      <Text style={styles.names}>Women T-Shirt, Mens Shoes, Men Suits</Text>
+          <Text style={styles.names}>Women T-Shirt, Mens Shoes, Men Suits</Text>
 
-      <View style={styles.row}>
-        <Text>Placed On</Text>
-        <Text>17-06-2021 | 06:00:03Z</Text>
-      </View>
-      <View style={styles.row}>
-        <Text>Total (Inc Tax)</Text>
-        <Text>PKR 165.2</Text>
-      </View>
-      <View style={styles.divider} />
-      <View style={styles.row}>
-        <Text>Payment status</Text>
-        <Badge size={26} style={[styles.badge, defaultStyles.bg_success]}>
-          Paid
-        </Badge>
-      </View>
-      <View style={styles.row}>
-        <Text>Order Status</Text>
-        {/* <Text style={styles.badge}>Unfulfilled</Text> */}
-        <Badge size={26} style={styles.badge}>
-          Unfulfilled
-        </Badge>
-      </View>
+          <View style={styles.row}>
+            <Text>Placed On</Text>
+            <Text>17-06-2021 | 06:00:03Z</Text>
+          </View>
+          <View style={styles.row}>
+            <Text>Total (Inc Tax)</Text>
+            <Text>PKR 165.2</Text>
+          </View>
+          <View style={styles.divider} />
+          <View style={styles.row}>
+            <Text>Payment status</Text>
+            <Badge size={26} style={[styles.badge, defaultStyles.bg_success]}>
+              Paid
+            </Badge>
+          </View>
+          <View style={styles.row}>
+            <Text>Order Status</Text>
+            {/* <Text style={styles.badge}>Unfulfilled</Text> */}
+            <Badge size={26} style={styles.badge}>
+              Unfulfilled
+            </Badge>
+          </View>
+        </>
+      </TouchableOpacity>
     </View>
   );
 }
