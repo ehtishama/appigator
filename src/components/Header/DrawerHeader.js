@@ -6,6 +6,7 @@ import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
 
 import {colors} from '../../config/colors';
 import SearchBox from '../SearchBox';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 export default function DrawerHeader({
   title,
@@ -56,19 +57,21 @@ export default function DrawerHeader({
   };
 
   return (
-    <View style={styles.container}>
-      {isPrevious ? (
-        <TouchableOpacity onPress={navigation.goBack} style={{padding: 4}}>
-          <EnIcon name="chevron-thin-left" size={25} color={colors.BLACK} />
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity onPress={openDrawer}>
-          <Icon name="reorder-three" size={30} color={colors.BLACK} />
-        </TouchableOpacity>
-      )}
-      <View style={styles.logoContainer}>{renderContent()}</View>
-      {renderActionRight()}
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        {isPrevious ? (
+          <TouchableOpacity onPress={navigation.goBack} style={{padding: 4}}>
+            <EnIcon name="chevron-thin-left" size={25} color={colors.BLACK} />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity onPress={openDrawer}>
+            <Icon name="reorder-three" size={30} color={colors.BLACK} />
+          </TouchableOpacity>
+        )}
+        <View style={styles.logoContainer}>{renderContent()}</View>
+        {renderActionRight()}
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -89,6 +92,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     backgroundColor: colors.HEADER_BACKGROUND,
+    marginTop: StatusBar.currentHeight,
   },
   drawerAction: {},
   title: {

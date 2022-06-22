@@ -66,7 +66,7 @@ export default function CartScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backfaceVisibility: 'red',
+    // backfaceVisibility: 'red',
   },
   relatedProductsContainer: {
     backgroundColor: colors.LIGHT_BACKGROUND,

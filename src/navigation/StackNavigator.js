@@ -10,12 +10,14 @@ import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 import CartScreen from '../screens/CartScreen';
 import OrderConfirmationScreen from '../screens/OrderConfirmationScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import AuthNavigator from './AuthNavigator';
 import OrderSuccessScreen from '../screens/OrderSuccessScreen';
 import OrdersScreen from '../screens/OrdersScreen';
 import OrderDetailsScreen from '../screens/OrderDetailsScreen';
 import AddressesScreen from '../screens/AddressesScreen';
 import AddressFormScreen from '../screens/AddressFormScreen';
+import AddressScreen from '../screens/AddressScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -148,6 +150,24 @@ export default function StackNavigator() {
         options={{
           header: () => (
             <DrawerHeader title={'New Address'} actionRightShown={false} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="AddressScreen"
+        component={AddressScreen}
+        options={{
+          title: 'Address',
+          header: () => <DrawerHeader logo actionRightShown={false} />,
+        }}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+          header: ({options: {title}}) => (
+            <DrawerHeader title={title} actionRightShown={false} />
           ),
         }}
       />

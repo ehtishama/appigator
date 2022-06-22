@@ -33,6 +33,7 @@ export default function AccountScreen() {
             }}
           />
         </View>
+
         {isLoggedIn ? (
           <TouchableOpacity>
             <Text style={styles.userName}>

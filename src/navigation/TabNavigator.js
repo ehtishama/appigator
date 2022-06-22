@@ -11,6 +11,7 @@ import DrawerHeader from '../components/Header/DrawerHeader';
 // import StackNavigator from './StackNavigator';
 import HeaderAction from '../components/HeaderAction';
 import {colors} from '../config/colors';
+import AddressScreen from '../screens/AddressScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +24,8 @@ export default function BottomTabNavigator() {
         options={{
           header: DrawerHeader,
           tabBarIcon: props => <Icon name="home" {...props} />,
+          // headerShown: false,
+          // headerStatusBarHeight: 100,
         }}
       />
       <Tab.Screen
