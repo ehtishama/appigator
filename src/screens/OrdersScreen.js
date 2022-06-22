@@ -7,7 +7,7 @@ import OrderItem from '../components/OrderItem';
 import EmptyListPlaceHolder from '../components/EmptyListPlaceHolder';
 import {colors} from '../config/colors';
 
-const dummyOrders = [...Array(0)];
+const dummyOrders = [...Array(1)];
 
 export default function OrdersScreen() {
   const navigation = useNavigation();

@@ -57,7 +57,9 @@ export default function SignupScreen() {
     };
 
     try {
+      setServerError(false);
       setLoading(true);
+
       const {data} = await usersApi.createCustomer(newCustomer);
       console.log('Response data: ', data);
 
@@ -79,11 +81,11 @@ export default function SignupScreen() {
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Signup</Text>
       <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={SignupSchema}
         validateOnBlur={false}
-        validateOnChange={false}>
+        onSubmit={handleSubmit}
+        validateOnChange={false}
+        initialValues={initialValues}
+        validationSchema={SignupSchema}>
         {({handleChange, handleBlur, handleSubmit, values, errors}) => (
           <View style={styles.form}>
             <TextInput

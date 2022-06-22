@@ -78,9 +78,7 @@ export default function AccountScreen() {
       </View>
 
       <View style={styles.linkOrder}>
-        <Text style={{color: colors.BLACK, fontSize: 17, fontWeight: 'bold'}}>
-          Orders
-        </Text>
+        <Text style={{fontSize: 17, fontWeight: 'bold'}}>Orders</Text>
         <TouchableOpacity onPress={() => navigation.navigate('OrdersScreen')}>
           <View style={styles.viewAll}>
             <Text style={styles.textOrder}>View All</Text>

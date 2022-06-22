@@ -3,10 +3,10 @@ import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {defaultStyles} from '../../../styles';
 
-export default function HorizonalLinkItem({icon, title}) {
+export default function HorizonalLinkItem({icon, title, onPress}) {
   return (
     <View style={[styles.hrLinkContainer, defaultStyles.mx_sm]}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <View style={styles.hrLink}>
           {icon}
           <Text

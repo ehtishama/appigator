@@ -10,6 +10,7 @@ import ContactScreen from '../screens/ContactScreen';
 import DrawerHeader from '../components/Header/DrawerHeader';
 // import StackNavigator from './StackNavigator';
 import HeaderAction from '../components/HeaderAction';
+import {colors} from '../config/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +45,11 @@ export default function BottomTabNavigator() {
               {...props}
               title="Account"
               actionRight={
-                <HeaderAction icon={<Icon name="setting" size={30} />} />
+                <HeaderAction
+                  icon={
+                    <Icon name="setting" size={30} color={colors.DARK_100} />
+                  }
+                />
               }
             />
           ),

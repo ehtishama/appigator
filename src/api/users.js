@@ -16,8 +16,22 @@ async function getCustomerProfile(accessToken) {
     headers: {Authorization: `Bearer ${accessToken}`},
   });
 }
+
+async function forgetPassword(
+  email,
+  template = 'email_reset',
+  websiteId = '1',
+) {
+  return apiClient.put('/V1/customers/password', {
+    email,
+    template,
+    websiteId,
+  });
+}
+
 export const usersApi = {
   createCustomer,
   getCustomerToken,
   getCustomerProfile,
+  forgetPassword,
 };

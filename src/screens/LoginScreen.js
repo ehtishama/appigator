@@ -1,19 +1,22 @@
-import {View, Text, ScrollView} from 'react-native';
-import React, {useState} from 'react';
-import {Formik} from 'formik';
 import * as Yup from 'yup';
-import {TextInput} from 'react-native-paper';
+import {Formik} from 'formik';
+import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import {TextInput} from 'react-native-paper';
+import {View, Text, ScrollView} from 'react-native';
 
-import FormFieldError from '../components/FormFieldError';
-import {colors} from '../config/colors';
-import Button from '../components/Button';
-import {useNavigation} from '@react-navigation/native';
 import {formStyles} from '../styles';
 import {usersApi} from '../api/users';
+import {colors} from '../config/colors';
+import Button from '../components/Button';
 import {login} from '../redux/reducers/authReducer';
+import {useNavigation} from '@react-navigation/native';
+import FormFieldError from '../components/FormFieldError';
 
-const initialValues = {email: '', password: ''};
+const initialValues = {
+  email: __DEV__ ? 'moinabid@usol.com' : '',
+  password: __DEV__ ? 'Password1' : '',
+};
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email address')
@@ -48,7 +51,7 @@ export default function LoginScreen() {
       setApiError(
         error?.response?.data?.message || 'An unexpected error has occurred',
       );
-      console.error(error);
+      // console.error(error);
     } finally {
       setLoading(false);
     }
@@ -56,7 +59,7 @@ export default function LoginScreen() {
 
   return (
     <ScrollView style={formStyles.container}>
-      <Text style={formStyles.title}>Login</Text>
+      <Text style={formStyles.title}>Login </Text>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -68,7 +71,7 @@ export default function LoginScreen() {
             <TextInput
               label={'Email *'}
               value={values.email}
-              placeholder={'dummyemail@gmail.com'}
+              placeholder={'yourmail@domain.com'}
               keyboardType="email-address"
               onBlur={handleBlur('email')}
               onChangeText={handleChange('email')}
@@ -107,6 +110,13 @@ export default function LoginScreen() {
           </View>
         )}
       </Formik>
+
+      <Button
+        title={'Forgot Password?'}
+        variant="text"
+        onPress={() => navigation.navigate('ForgotPasswordScreen')}
+      />
+
       <Text style={formStyles.bottomText}>
         Don't have an account?{' '}
         <Text

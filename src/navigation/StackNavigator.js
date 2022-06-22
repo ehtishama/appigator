@@ -14,6 +14,8 @@ import AuthNavigator from './AuthNavigator';
 import OrderSuccessScreen from '../screens/OrderSuccessScreen';
 import OrdersScreen from '../screens/OrdersScreen';
 import OrderDetailsScreen from '../screens/OrderDetailsScreen';
+import AddressesScreen from '../screens/AddressesScreen';
+import AddressFormScreen from '../screens/AddressFormScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +27,13 @@ export default function StackNavigator() {
         component={DrawerNavigator}
         options={{headerShown: false}}
       />
+
+      <Stack.Screen
+        name="AuthNavigator"
+        component={AuthNavigator}
+        options={{headerShown: false}}
+      />
+
       <Stack.Screen
         name="ProductsScreen"
         component={ProductsScreen}
@@ -124,9 +133,23 @@ export default function StackNavigator() {
       />
 
       <Stack.Screen
-        name="AuthNavigator"
-        component={AuthNavigator}
-        options={{headerShown: false}}
+        name="AddressesScreen"
+        component={AddressesScreen}
+        options={{
+          header: () => (
+            <DrawerHeader title={'Address '} actionRightShown={false} />
+          ),
+        }}
+      />
+
+      <Stack.Screen
+        name="AddressFormScreen"
+        component={AddressFormScreen}
+        options={{
+          header: () => (
+            <DrawerHeader title={'New Address'} actionRightShown={false} />
+          ),
+        }}
       />
     </Stack.Navigator>
   );

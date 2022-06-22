@@ -1,9 +1,6 @@
-import React from 'react';
 import 'react-native-gesture-handler';
-import {AppRegistry, Text} from 'react-native';
-import {Provider} from 'react-redux';
-import App from './App';
+import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
-import {persistor, store} from './src/redux/store';
-import {PersistGate} from 'redux-persist/integration/react';
+import App from './App';
+
 AppRegistry.registerComponent(appName, () => App);

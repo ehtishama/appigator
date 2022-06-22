@@ -1,15 +1,8 @@
 import React from 'react';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Text,
-  StatusBar,
-} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import EnIcon from 'react-native-vector-icons/Entypo';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
 
 import {colors} from '../../config/colors';
 import SearchBox from '../SearchBox';
@@ -102,7 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     textTransform: 'capitalize',
-    // color: colors.BLACK,
+    color: colors.DARK_100,
     paddingVertical: 4,
   },
   rightActions: {

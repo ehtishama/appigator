@@ -1,5 +1,6 @@
-import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useRef} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Animated} from 'react-native';
+
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {colors} from '../../config/colors';
@@ -10,14 +11,29 @@ export default function AccordianHeader({
   isOpen = false,
   onPress,
 }) {
+  const iconScale = useRef(new Animated.Value(1)).current;
+  const iconRotate = iconScale.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['90deg', '0deg'],
+  });
+
+  const handlePress = () => {
+    Animated.timing(iconScale, {
+      toValue: isOpen ? 1 : 0,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+
+    onPress();
+  };
+
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={handlePress}>
       <View style={styles.container}>
         <Text style={styles.title}>{`${title} | ${subTitle}`}</Text>
-        <MaterialIcon
-          name={`${isOpen ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}`}
-          size={32}
-        />
+        <Animated.View style={{transform: [{rotate: iconRotate}]}}>
+          <MaterialIcon name={'keyboard-arrow-right'} size={32} />
+        </Animated.View>
       </View>
     </TouchableOpacity>
   );
